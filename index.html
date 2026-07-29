@@ -71,6 +71,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .timeline-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
 .tag{padding:3px 10px;background:var(--cream);border:1px solid var(--sand);border-radius:2px;font-size:11px;letter-spacing:.05em;color:var(--ink2);}
 
+/* External Links */
+.ext-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--accent2);
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.2s;
+  background: transparent;
+}
+.ext-link:hover {
+  background: var(--accent);
+  color: var(--cream);
+  border-color: var(--accent);
+}
+.ext-link::before { content: "↗"; font-size: 10px; }
+
 /* Photo Gallery */
 .photo-gallery {
   display: grid;
@@ -303,6 +331,10 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
             <img src="LANEHUB-02.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
             <img src="LANEHUB-03.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
           </div>
+          <div class="ext-links">
+            <a href="https://www.sohu.com/a/284425128_171445" target="_blank" class="ext-link"><span data-lang="zh">開幕新聞</span><span data-lang="en">Opening Press</span></a>
+            <a href="https://www.sohu.com/a/338773869_391501" target="_blank" class="ext-link"><span data-lang="zh">活動報導</span><span data-lang="en">Event Coverage</span></a>
+          </div>
         </div>
       </div>
 
@@ -317,6 +349,10 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
             <img src="NU-01.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
             <img src="NU-02.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
             <img src="NU-03.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
+          </div>
+          <div class="ext-links">
+            <a href="https://baijiahao.baidu.com/s?id=1768202439207626155&wfr=spider&for=pc" target="_blank" class="ext-link"><span data-lang="zh">設計上海報導</span><span data-lang="en">Design Shanghai Coverage</span></a>
+            <a href="https://www.forbeschina.com/billionaires/62422" target="_blank" class="ext-link">Forbes China · Studio 9</a>
           </div>
         </div>
       </div>
@@ -333,6 +369,9 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
             <img src="Wave-02.jpg" alt="Wave Drink" onclick="openLightbox(this.src)">
             <img src="Wave-03.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
           </div>
+          <div class="ext-links">
+            <a href="https://www.instagram.com/drinkwave_official" target="_blank" class="ext-link">Instagram</a>
+          </div>
         </div>
       </div>
 
@@ -347,6 +386,10 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
             <img src="NN-01.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
             <img src="NN-02.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
             <img src="NN-03.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
+          </div>
+          <div class="ext-links">
+            <a href="https://www.nour-now.com/" target="_blank" class="ext-link"><span data-lang="zh">官網</span><span data-lang="en">Website</span></a>
+            <a href="https://www.instagram.com/bynournow" target="_blank" class="ext-link">Instagram</a>
           </div>
         </div>
       </div>
