@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amber Chang — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F7F3EE; --warm:#EDE7DC; --sand:#D8CEBF;
+  --ink:#1C1A17; --ink2:#4A4540; --ink3:#8A837A;
+  --accent:#8B6F4E; --accent2:#C4956A; --line:#E0D8CE;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+/* Lang */
+.lang-toggle{display:flex;align-items:center;gap:2px;background:var(--warm);border:1px solid var(--line);border-radius:20px;padding:3px;}
+.lang-btn{padding:5px 12px;border-radius:16px;border:none;background:transparent;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--ink3);cursor:pointer;transition:all .2s;}
+.lang-btn.active{background:var(--ink);color:var(--cream);}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;background:rgba(247,243,238,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;letter-spacing:.05em;color:var(--ink);text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:32px;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 48px 80px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 60% at 80% 20%,rgba(196,149,106,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(139,111,78,.08) 0%,transparent 60%);}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,10vw,140px);font-weight:300;line-height:.9;letter-spacing:-.02em;color:var(--ink);margin-bottom:32px;}
+.hero-name em{font-style:italic;color:var(--accent);}
+.hero-desc{max-width:600px;font-size:16px;color:var(--ink2);line-height:1.9;margin-bottom:48px;}
+.hero-stats{display:flex;gap:48px;padding-top:32px;border-top:1px solid var(--line);flex-wrap:wrap;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--ink);line-height:1;}
+.stat-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:4px;}
+.scroll-hint{position:absolute;bottom:32px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollDown 2s ease infinite;}
+@keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* Section */
+.section-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:40px;display:flex;align-items:center;gap:16px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--line);max-width:120px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:24px;}
+
+/* About */
+#about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px;margin:0 auto;padding:100px 48px;}
+.about-text{font-size:15px;line-height:1.9;color:var(--ink2);margin-bottom:20px;}
+.about-text strong{color:var(--ink);font-weight:500;}
+.about-right{display:flex;flex-direction:column;gap:16px;}
+.capability-item{padding:22px 24px;background:var(--warm);border-radius:4px;border-left:2px solid var(--accent2);}
+.cap-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.cap-desc{font-size:13px;color:var(--ink2);line-height:1.6;}
+
+/* Timeline */
+#experience{background:var(--warm);padding:100px 48px;}
+.timeline-inner{max-width:1100px;margin:0 auto;}
+.timeline{position:relative;margin-top:16px;}
+.timeline::before{content:'';position:absolute;left:160px;top:0;bottom:0;width:1px;background:var(--sand);}
+.timeline-item{display:grid;grid-template-columns:160px 1fr;gap:48px;margin-bottom:56px;position:relative;}
+.timeline-item::before{content:'';position:absolute;left:156px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent2);border:2px solid var(--warm);}
+.timeline-year{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);text-align:right;padding-top:4px;line-height:1.6;padding-right:8px;}
+.timeline-role{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:4px;}
+.timeline-company{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.timeline-desc{font-size:14px;color:var(--ink2);line-height:1.8;}
+.timeline-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.tag{padding:3px 10px;background:var(--cream);border:1px solid var(--sand);border-radius:2px;font-size:11px;letter-spacing:.05em;color:var(--ink2);}
+
+/* Projects */
+#projects{max-width:1100px;margin:0 auto;padding:100px 48px;}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:16px;}
+.project-card{background:var(--warm);border-radius:4px;padding:36px;border:1px solid var(--line);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(28,26,23,.08);}
+.project-card:hover::before{transform:scaleX(1);}
+.project-period{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-bottom:12px;}
+.project-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px;line-height:1.2;}
+.project-role{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.project-desc{font-size:14px;color:var(--ink2);line-height:1.8;margin-bottom:20px;}
+.project-highlights{display:flex;flex-direction:column;gap:6px;}
+.highlight{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink2);}
+.highlight::before{content:'—';color:var(--accent2);flex-shrink:0;margin-top:1px;}
+
+/* Skills */
+#skills{max-width:1100px;margin:0 auto;padding:100px 48px;}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:16px;}
+.skill-group{padding:28px;border:1px solid var(--line);border-radius:4px;}
+.skill-group-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+.skill-list{display:flex;flex-direction:column;gap:10px;}
+.skill-item{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:8px;}
+.skill-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
+
+/* Vision */
+#vision{background:var(--warm);padding:100px 48px;}
+.vision-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.vision-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;font-style:italic;line-height:1.4;color:var(--ink);}
+.vision-quote em{color:var(--accent);font-style:normal;}
+.vision-text{font-size:15px;color:var(--ink2);line-height:1.9;margin-bottom:20px;}
+.vision-chips{display:flex;gap:10px;flex-wrap:wrap;}
+.year-chip{padding:8px 16px;border:1px solid var(--accent2);border-radius:2px;font-size:12px;letter-spacing:.08em;color:var(--accent);}
+
+/* Contact */
+#contact{max-width:1100px;margin:0 auto;padding:100px 48px;text-align:center;}
+.contact-sub{font-size:16px;color:var(--ink2);margin:0 auto 48px;max-width:480px;}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.contact-btn{padding:14px 28px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .2s;cursor:pointer;}
+.contact-btn:hover,.contact-btn.primary{background:var(--ink);color:var(--cream);}
+
+footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink3);}
+
+/* Lang */
+.lang-zh [data-lang="en"]{display:none;}
+.lang-en [data-lang="zh"]{display:none;}
+
+/* Responsive */
+@media(max-width:900px){
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  .nav-links{display:none;}
+  .hero{padding:0 24px 64px;}
+  #about{grid-template-columns:1fr;gap:40px;padding:64px 24px;}
+  #experience,#projects,#skills,#vision,#contact{padding:64px 24px;}
+  .vision-inner{grid-template-columns:1fr;gap:40px;}
+  .projects-grid{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .hero-stats{gap:24px;}
+  .timeline::before{left:100px;}
+  .timeline-item{grid-template-columns:100px 1fr;gap:24px;}
+  .timeline-item::before{left:96px;}
+  footer{flex-direction:column;gap:8px;text-align:center;}
+}
+</style>
+</head>
+<body class="lang-zh">
+
+<nav>
+  <a href="#" class="nav-logo">Amber Chang</a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('zh')">中</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
+  <p class="hero-eyebrow">Brand &amp; Product Marketing | Content &amp; Positioning | Lifestyle &amp; Wellness Brands (APAC)</p>
+  <h1 class="hero-name">Amber<br><em>Chang</em></h1>
+  <p class="hero-desc">
+    <span data-lang="zh">十年間橫跨上海與台灣，從國際品牌到新創團隊，從品牌策略到自主創業。一路走來我始終專注於一件事：把好的想法，建立成能持續成長的品牌。熱衷於大健康產業，相信健康科學能改變日常生活，擅長從品牌策略、內容系統到商業落地，建立真正能運作的品牌系統。</span>
+    <span data-lang="en">Ten years across Shanghai and Taiwan — from international brands to startup teams, from brand strategy to building my own. Throughout it all, I've been focused on one thing: turning good ideas into brands that grow. Passionate about the wellness industry, I believe health science can transform everyday life. I specialize in building brand systems that actually work — from strategy and content to commercial execution.</span>
+  </p>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">10</div>
+      <div class="stat-label"><span data-lang="zh">年品牌策略與布局</span><span data-lang="en">Years Brand Strategy</span></div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label"><span data-lang="zh">個從0到1品牌建立</span><span data-lang="en">Brands Built from Zero</span></div>
+    </div>
+    <div>
+      <div class="stat-num">100+</div>
+      <div class="stat-label"><span data-lang="zh">B2B 通路拓展</span><span data-lang="en">B2B Channel Points</span></div>
+    </div>
+    <div>
+      <div class="stat-num">10K+</div>
+      <div class="stat-label"><span data-lang="zh">健康內容與社群成長</span><span data-lang="en">Wellness Community Growth</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<div id="about">
+  <div class="about-left">
+    <div class="section-label"><span data-lang="zh">關於我</span><span data-lang="en">About Me</span></div>
+    <p class="about-text">
+      <span data-lang="zh">過去十年間，我從 PChome 的電商營運起步，歷經偉門廣告的整合行銷、上海新創的品牌孵化，到丹麥家具集團的亞太品牌策略。每一段經歷都讓我學會，在不同的市場、團隊與資源條件下，找到品牌成長的方向，並把策略一步步落實成成果。</span>
+      <span data-lang="en">Over the past decade, I've built my career from e-commerce operations at PChome, through integrated marketing at Wunderman, brand incubation at a Shanghai startup, to Asia-Pacific brand strategy at a Danish furniture group. Each chapter taught me how to find the direction for brand growth — and turn strategy into measurable results — across different markets, teams, and resource constraints.</span>
+    </p>
+    <p class="about-text">
+      <span data-lang="zh">三年前回到台灣，我選擇投入創業，親自從零打造品牌，將品牌定位、產品開發、通路拓展到內容經營，放進真實市場中反覆驗證。這段經歷讓我不只是累積更多技能，也重新確認自己最熱衷於「參與品牌從無到有、從策略到落地的每一個關鍵階段」。</span>
+      <span data-lang="en">Three years ago I returned to Taiwan and chose to build from zero — taking brand positioning, product development, channel expansion, and content operations into the real market to test and iterate. This experience didn't just add to my skills; it confirmed what I'm most passionate about: being part of every critical stage as a brand goes from nothing to something real.</span>
+    </p>
+    <p class="about-text">
+      <span data-lang="zh">現在我希望將這十年累積的品牌策略、商業思維與跨域整合能力，帶到更大的平台，持續打造真正具有長期價值，也能建立健康生活的產業。</span>
+      <span data-lang="en">Now I'm ready to bring a decade of brand strategy, business thinking, and cross-domain integration into a larger platform — to keep building brands with lasting value in the wellness and lifestyle space.</span>
+    </p>
+  </div>
+  <div class="about-right">
+    <div class="capability-item">
+      <div class="cap-title"><span data-lang="zh">品牌建立與商業落地</span><span data-lang="en">Brand Building & Commercial Execution</span></div>
+      <div class="cap-desc"><span data-lang="zh">從品牌定位、產品研發、GTM 策略到 B2B 銷售體系，習慣在白紙上建立能夠實際運作的品牌系統。</span><span data-lang="en">From brand positioning and product development to GTM strategy and B2B sales systems — I'm most at home building brand systems that actually work on a blank page.</span></div>
+    </div>
+    <div class="capability-item">
+      <div class="cap-title"><span data-lang="zh">跨市場策略整合</span><span data-lang="en">Cross-Market Strategy Integration</span></div>
+      <div class="cap-desc"><span data-lang="zh">曾代表亞太區品牌統籌國際展會，橋接總部與在地市場，確保跨市場的品牌策略一致與執行落地。</span><span data-lang="en">Represented Asia-Pacific brands at international exhibitions, bridging HQ and local markets to ensure brand strategy consistency and on-the-ground execution across regions.</span></div>
+    </div>
+    <div class="capability-item">
+      <div class="cap-title"><span data-lang="zh">內容策略與品牌成長</span><span data-lang="en">Content Strategy & Brand Growth</span></div>
+      <div class="cap-desc"><span data-lang="zh">半年內帶領 NourNow 破萬粉絲、百萬瀏覽；Human Space 開帳一個月即將突破 5000 粉——不靠運氣，靠可複製的內容框架。</span><span data-lang="en">NourNow: 10K followers and 1M views in 6 months. Human Space: approaching 5K followers in month one. Not luck — repeatable content frameworks.</span></div>
+    </div>
+    <div class="capability-item">
+      <div class="cap-title"><span data-lang="zh">AI 驅動的工作系統</span><span data-lang="en">AI-Driven Work Systems</span></div>
+      <div class="cap-desc"><span data-lang="zh">將 AI 導入內容研究、創作與工作流程，建立可重複運作的知識生產系統，持續探索 AI 如何放大個人與團隊效能。</span><span data-lang="en">Integrated AI into content research, creation, and workflows to build repeatable knowledge production systems. Continuously exploring how AI can amplify personal and team capacity.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Experience -->
+<div id="experience">
+  <div class="timeline-inner">
+    <div class="section-label"><span data-lang="zh">工作經歷</span><span data-lang="en">Experience</span></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">2015–2017</div>
+        <div class="timeline-content">
+          <div class="timeline-role"><span data-lang="zh">產品企劃</span><span data-lang="en">Product Planner</span></div>
+          <div class="timeline-company">PChome 24h Shopping</div>
+          <div class="timeline-desc"><span data-lang="zh">負責家具線的數位行銷與銷售，涵蓋選品、推廣、庫存管理與廠商關係維護。建立電商營運完整認知。</span><span data-lang="en">Managed digital marketing and sales for the furniture category — product curation, promotions, inventory management, and vendor relations. Built a foundational understanding of e-commerce operations.</span></div>
+          <div class="timeline-tags"><span class="tag">E-Commerce</span><span class="tag">Digital Marketing</span><span class="tag">Vendor Management</span></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2016–2018</div>
+        <div class="timeline-content">
+          <div class="timeline-role"><span data-lang="zh">資深客戶執行</span><span data-lang="en">Senior Account Executive</span></div>
+          <div class="timeline-company">Wunderman 偉門廣告</div>
+          <div class="timeline-desc"><span data-lang="zh">負責家樂福官網行銷維運，以及樂事新口味上市整合行銷 Campaign 的統籌執行，深化整合行銷與客戶管理能力。</span><span data-lang="en">Managed Carrefour's official website marketing operations and led the integrated marketing campaign for Lay's new flavor launch in Taiwan.</span></div>
+          <div class="timeline-tags"><span class="tag">Integrated Marketing</span><span class="tag">Campaign Management</span><span class="tag">Client Services</span></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2018–2020<br>Shanghai</div>
+        <div class="timeline-content">
+          <div class="timeline-role"><span data-lang="zh">產品內容策劃</span><span data-lang="en">Product Content Strategist</span></div>
+          <div class="timeline-company">LaneHub 瓴里家具 · Shanghai</div>
+          <div class="timeline-desc"><span data-lang="zh">加入安居客創辦人旗下百人新創，推廣家具產業 O2O。負責線上內容行銷與線下實體店開幕 GTM，並獨立孵化新品牌作為旗下產品線。</span><span data-lang="en">Joined a 100-person startup backed by Anjuke's founder to pioneer furniture O2O. Led online content marketing and offline store GTM. Independently incubated a new sub-brand within the product portfolio.</span></div>
+          <div class="timeline-tags"><span class="tag">Brand Incubation</span><span class="tag">O2O</span><span class="tag">GTM</span><span class="tag">Store Launch</span></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2020–2023</div>
+        <div class="timeline-content">
+          <div class="timeline-role"><span data-lang="zh">行銷主管</span><span data-lang="en">Marketing Manager</span></div>
+          <div class="timeline-company">NineUnited TAK · Asia-Pacific HQ</div>
+          <div class="timeline-desc"><span data-lang="zh">負責 Stellar Works 與 HAY 亞太區年度品牌策略與落地執行。統籌跨區域溝通，代表品牌籌備參加「設計上海 2022」，並參與規劃亞太區旗艦店開幕。</span><span data-lang="en">Led annual brand strategy and execution for Stellar Works and HAY across Asia-Pacific. Managed cross-regional communications. Represented brands at Design Shanghai 2022 and co-planned the APAC flagship store opening.</span></div>
+          <div class="timeline-tags"><span class="tag">APAC Brand Strategy</span><span class="tag">Design Shanghai 2022</span><span class="tag">Cross-Regional</span><span class="tag">Flagship Launch</span></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2023–2025</div>
+        <div class="timeline-content">
+          <div class="timeline-role"><span data-lang="zh">共同創辦人 · COO · Sales Head</span><span data-lang="en">Co-Founder · COO · Sales Head</span></div>
+          <div class="timeline-company">Wave Drink · Taiwan</div>
+          <div class="timeline-desc"><span data-lang="zh">合夥創立台灣首個草本放鬆機能飲品牌。從品牌定位、產品研發至行銷推廣、庫存物流系統一手建立。B2B 銷售成功拓展至全台含外島 100+ 餐廳及飯店，並與 lululemon、Kiehl's、La Mer 等品牌達成行銷合作，成為御用迎賓飲。</span><span data-lang="en">Co-founded Taiwan's first herbal relaxation functional beverage brand. Built everything from scratch: brand identity, product R&amp;D, marketing, inventory and logistics. Expanded B2B to 100+ restaurants and hotels across Taiwan. Became the official welcome drink for lululemon, Kiehl's, and La Mer marketing events.</span></div>
+          <div class="timeline-tags"><span class="tag">Startup · COO</span><span class="tag">Brand Building</span><span class="tag">B2B Sales</span><span class="tag">lululemon · Kiehl's · La Mer</span></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2025–<span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
+        <div class="timeline-content">
+          <div class="timeline-role"><span data-lang="zh">共同創辦人 · 內容編輯</span><span data-lang="en">Co-Founder · Content Editor</span></div>
+          <div class="timeline-company">NourNow · <span data-lang="zh">華語健康媒體社群</span><span data-lang="en">Chinese Wellness Media Community</span></div>
+          <div class="timeline-desc"><span data-lang="zh">致力推廣健康生活方式的華語媒體平台。創立至今籌辦 10+ 場百人運動派對，半年內粉絲破萬、突破百萬瀏覽量、累積 2000+ 會員。另負責客戶的內容行銷執行，包含 ESEN 伊生生活醫學誌、SHHH Group 品牌社群內容。</span><span data-lang="en">A Chinese-language wellness media platform promoting healthier living. Organized 10+ fitness events with 100+ attendees. Achieved 10K+ followers, 1M+ views, and 2,000+ members within 6 months. Also managing content marketing for clients including ESEN Medical Lifestyle Magazine and SHHH Group.</span></div>
+          <div class="timeline-tags"><span class="tag">Media Startup</span><span class="tag">Content Strategy</span><span class="tag">Community Growth</span><span class="tag">ESEN · SHHH Group</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="section-label"><span data-lang="zh">自主項目</span><span data-lang="en">Projects</span></div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-period">2026 — <span data-lang="zh">孵化中</span><span data-lang="en">Incubating</span></div>
+      <div class="project-name">Human Space</div>
+      <div class="project-role"><span data-lang="zh">創辦人 · 內容策略</span><span data-lang="en">Founder · Content Strategy</span></div>
+      <div class="project-desc"><span data-lang="zh">以「大人的童書」為核心，探索以腦神經科學結合心理學的新型知識品牌，驗證內容模型與社群成長策略。創立帳號一個月內粉絲即將破萬，仍在孵化中。</span><span data-lang="en">A knowledge brand built on the concept of "picture books for grown-ups," exploring the intersection of neuroscience and psychology. Validating content models and community growth strategies. Approaching 10K followers within the first month of launch — still incubating.</span></div>
+      <div class="project-highlights">
+        <div class="highlight"><span data-lang="zh">一個月內粉絲即將破萬</span><span data-lang="en">Approaching 10K followers in month one</span></div>
+        <div class="highlight"><span data-lang="zh">腦神經科學 × 心理學知識品牌</span><span data-lang="en">Neuroscience × Psychology knowledge brand</span></div>
+        <div class="highlight"><span data-lang="zh">持續驗證內容模型中</span><span data-lang="en">Ongoing content model validation</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-period">2026 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
+      <div class="project-name"><span data-lang="zh">AI 自動化系統</span><span data-lang="en">AI Automation Systems</span></div>
+      <div class="project-role"><span data-lang="zh">獨立開發</span><span data-lang="en">Independent Development</span></div>
+      <div class="project-desc"><span data-lang="zh">將 AI 導入內容研究、創作與工作流程，建立可重複運作的知識生產系統。</span><span data-lang="en">Integrated AI into content research, creation, and workflows to build repeatable knowledge production systems that scale.</span></div>
+      <div class="project-highlights">
+        <div class="highlight"><span data-lang="zh">內容自動搜集系統（Google Script + AI）</span><span data-lang="en">Content aggregation system (Google Script + AI)</span></div>
+        <div class="highlight"><span data-lang="zh">對話影片自動生成系統</span><span data-lang="en">Auto dialogue video generation system</span></div>
+        <div class="highlight"><span data-lang="zh">Life OS 個人管理系統</span><span data-lang="en">Life OS personal management system</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="section-label"><span data-lang="zh">能力圖譜</span><span data-lang="en">Skills</span></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title"><span data-lang="zh">品牌</span><span data-lang="en">Brand</span></div>
+      <div class="skill-list">
+        <div class="skill-item"><span data-lang="zh">品牌策略</span><span data-lang="en">Brand Strategy</span></div>
+        <div class="skill-item"><span data-lang="zh">品牌定位</span><span data-lang="en">Brand Positioning</span></div>
+        <div class="skill-item">Go-to-Market</div>
+        <div class="skill-item"><span data-lang="zh">新事業開發</span><span data-lang="en">New Business Dev</span></div>
+        <div class="skill-item"><span data-lang="zh">消費者洞察</span><span data-lang="en">Consumer Insights</span></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span data-lang="zh">管理</span><span data-lang="en">Management</span></div>
+      <div class="skill-list">
+        <div class="skill-item"><span data-lang="zh">專案管理</span><span data-lang="en">Project Management</span></div>
+        <div class="skill-item"><span data-lang="zh">跨部門協作</span><span data-lang="en">Cross-Functional</span></div>
+        <div class="skill-item"><span data-lang="zh">跨國溝通</span><span data-lang="en">Cross-Border Comms</span></div>
+        <div class="skill-item"><span data-lang="zh">營運流程</span><span data-lang="en">Operations</span></div>
+        <div class="skill-item"><span data-lang="zh">通路拓展</span><span data-lang="en">Channel Expansion</span></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span data-lang="zh">成長</span><span data-lang="en">Growth</span></div>
+      <div class="skill-list">
+        <div class="skill-item"><span data-lang="zh">內容策略</span><span data-lang="en">Content Strategy</span></div>
+        <div class="skill-item"><span data-lang="zh">社群成長</span><span data-lang="en">Community Growth</span></div>
+        <div class="skill-item"><span data-lang="zh">品牌敘事</span><span data-lang="en">Brand Storytelling</span></div>
+        <div class="skill-item"><span data-lang="zh">數據分析</span><span data-lang="en">Data Analytics</span></div>
+        <div class="skill-item"><span data-lang="zh">AI 工作流程</span><span data-lang="en">AI Workflows</span></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span data-lang="zh">工具</span><span data-lang="en">Tools</span></div>
+      <div class="skill-list">
+        <div class="skill-item">AI (Gemini / Claude)</div>
+        <div class="skill-item">Google Workspace</div>
+        <div class="skill-item">Apps Script</div>
+        <div class="skill-item">Canva</div>
+        <div class="skill-item">IG / 小紅書 / Threads</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision -->
+<div id="vision">
+  <div class="vision-inner">
+    <div class="vision-quote">
+      <span data-lang="zh">我想加入的，<br>不只是一份工作——<br>而是一個<em>長期有意義的品牌。</em></span>
+      <span data-lang="en">I'm not looking<br>for just a job —<br>I'm looking for a brand<br>worth <em>building for the long run.</em></span>
+    </div>
+    <div>
+      <div class="section-label"><span data-lang="zh">未來方向</span><span data-lang="en">Vision</span></div>
+      <p class="vision-text">
+        <span data-lang="zh">我希望加入一個具有長期願景的品牌，持續深耕健康與生活風格產業，參與品牌策略、產品上市與市場成長。</span>
+        <span data-lang="en">I want to join a brand with long-term vision — to keep building deep expertise in the health and lifestyle space, contributing to brand strategy, product launches, and market growth.</span>
+      </p>
+      <p class="vision-text">
+        <span data-lang="zh">期待在跨部門合作中，串連品牌、產品與市場，打造真正改善人們生活的產品與服務，也持續累積自己在 HealthTech、Wellness 與新創領域的專業深度。</span>
+        <span data-lang="en">I look forward to connecting brand, product, and market through cross-functional collaboration — building products and services that genuinely improve people's lives, while deepening my expertise in HealthTech, Wellness, and new ventures.</span>
+      </p>
+      <div class="vision-chips">
+        <span class="year-chip"><span data-lang="zh">大健康產業</span><span data-lang="en">Wellness Industry</span></span>
+        <span class="year-chip">HealthTech</span>
+        <span class="year-chip"><span data-lang="zh">生活風格品牌</span><span data-lang="en">Lifestyle Brands</span></span>
+        <span class="year-chip">APAC</span>
+        <span class="year-chip"><span data-lang="zh">新創生態</span><span data-lang="en">Startup Ecosystem</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-label" style="justify-content:center"><span data-lang="zh">聯絡我</span><span data-lang="en">Contact</span></div>
+  <h2 class="section-title"><span data-lang="zh">讓我們談談</span><span data-lang="en">Let's Talk</span></h2>
+  <p class="contact-sub">
+    <span data-lang="zh">如果對我過去的經驗感興趣，或有相關專案與想法，歡迎與我聯絡聊聊。</span>
+    <span data-lang="en">If my background resonates with you, or you have a project or idea you'd like to explore together, I'd love to hear from you.</span>
+  </p>
+  <div class="contact-links">
+    <a href="mailto:itsamberchang@gmail.com" class="contact-btn primary">itsamberchang@gmail.com</a>
+    <a href="https://www.linkedin.com/in/amber-c-188aa3146/" target="_blank" class="contact-btn">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Amber Chang</span>
+  <span>Brand &amp; Product Marketing | Lifestyle &amp; Wellness (APAC)</span>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.className='lang-'+lang;
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active', (lang==='zh'&&btn.textContent.trim()==='中')||(lang==='en'&&btn.textContent.trim()==='EN'));
+  });
+}
+</script>
+</body>
+</html>
