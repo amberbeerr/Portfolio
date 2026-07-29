@@ -71,6 +71,56 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .timeline-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
 .tag{padding:3px 10px;background:var(--cream);border:1px solid var(--sand);border-radius:2px;font-size:11px;letter-spacing:.05em;color:var(--ink2);}
 
+/* Photo Gallery */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.photo-gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s;
+  border-radius: 4px;
+}
+.photo-gallery img:hover { opacity: 0.85; transform: scale(1.02); }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(28,26,23,0.95);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.lightbox-close:hover { opacity: 1; }
+
 /* Projects */
 #projects{max-width:1100px;margin:0 auto;padding:100px 48px;}
 .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:16px;}
@@ -248,6 +298,11 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
           <div class="timeline-company">LaneHub 瓴里家具 · Shanghai</div>
           <div class="timeline-desc"><span data-lang="zh">加入安居客創辦人旗下百人新創，推廣家具產業 O2O。負責線上內容行銷與線下實體店開幕 GTM，並獨立孵化新品牌作為旗下產品線。</span><span data-lang="en">Joined a 100-person startup backed by Anjuke's founder to pioneer furniture O2O. Led online content marketing and offline store GTM. Independently incubated a new sub-brand within the product portfolio.</span></div>
           <div class="timeline-tags"><span class="tag">Brand Incubation</span><span class="tag">O2O</span><span class="tag">GTM</span><span class="tag">Store Launch</span></div>
+          <div class="photo-gallery">
+            <img src="LANEHUB-01.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
+            <img src="LANEHUB-02.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
+            <img src="LANEHUB-03.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
+          </div>
         </div>
       </div>
 
@@ -258,6 +313,11 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
           <div class="timeline-company">NineUnited TAK · Asia-Pacific HQ</div>
           <div class="timeline-desc"><span data-lang="zh">負責 Stellar Works 與 HAY 亞太區年度品牌策略與落地執行。統籌跨區域溝通，代表品牌籌備參加「設計上海 2022」，並參與規劃亞太區旗艦店開幕。</span><span data-lang="en">Led annual brand strategy and execution for Stellar Works and HAY across Asia-Pacific. Managed cross-regional communications. Represented brands at Design Shanghai 2022 and co-planned the APAC flagship store opening.</span></div>
           <div class="timeline-tags"><span class="tag">APAC Brand Strategy</span><span class="tag">Design Shanghai 2022</span><span class="tag">Cross-Regional</span><span class="tag">Flagship Launch</span></div>
+          <div class="photo-gallery">
+            <img src="NU-01.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
+            <img src="NU-02.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
+            <img src="NU-03.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
+          </div>
         </div>
       </div>
 
@@ -268,6 +328,11 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
           <div class="timeline-company">Wave Drink · Taiwan</div>
           <div class="timeline-desc"><span data-lang="zh">合夥創立台灣首個草本放鬆機能飲品牌。從品牌定位、產品研發至行銷推廣、庫存物流系統一手建立。B2B 銷售成功拓展至全台含外島 100+ 餐廳及飯店，並與 lululemon、Kiehl's、La Mer 等品牌達成行銷合作，成為御用迎賓飲。</span><span data-lang="en">Co-founded Taiwan's first herbal relaxation functional beverage brand. Built everything from scratch: brand identity, product R&amp;D, marketing, inventory and logistics. Expanded B2B to 100+ restaurants and hotels across Taiwan. Became the official welcome drink for lululemon, Kiehl's, and La Mer marketing events.</span></div>
           <div class="timeline-tags"><span class="tag">Startup · COO</span><span class="tag">Brand Building</span><span class="tag">B2B Sales</span><span class="tag">lululemon · Kiehl's · La Mer</span></div>
+          <div class="photo-gallery">
+            <img src="Wave-01.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
+            <img src="Wave-02.jpg" alt="Wave Drink" onclick="openLightbox(this.src)">
+            <img src="Wave-03.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
+          </div>
         </div>
       </div>
 
@@ -278,6 +343,11 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
           <div class="timeline-company">NourNow · <span data-lang="zh">華語健康媒體社群</span><span data-lang="en">Chinese Wellness Media Community</span></div>
           <div class="timeline-desc"><span data-lang="zh">致力推廣健康生活方式的華語媒體平台。創立至今籌辦 10+ 場百人運動派對，半年內粉絲破萬、突破百萬瀏覽量、累積 2000+ 會員。另負責客戶的內容行銷執行，包含 ESEN 伊生生活醫學誌、SHHH Group 品牌社群內容。</span><span data-lang="en">A Chinese-language wellness media platform promoting healthier living. Organized 10+ fitness events with 100+ attendees. Achieved 10K+ followers, 1M+ views, and 2,000+ members within 6 months. Also managing content marketing for clients including ESEN Medical Lifestyle Magazine and SHHH Group.</span></div>
           <div class="timeline-tags"><span class="tag">Media Startup</span><span class="tag">Content Strategy</span><span class="tag">Community Growth</span><span class="tag">ESEN · SHHH Group</span></div>
+          <div class="photo-gallery">
+            <img src="NN-01.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
+            <img src="NN-02.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
+            <img src="NN-03.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
+          </div>
         </div>
       </div>
 
@@ -411,7 +481,25 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
   <span>Brand &amp; Product Marketing | Lifestyle &amp; Wellness (APAC)</span>
 </footer>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
+function openLightbox(src){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
+
 function setLang(lang){
   document.body.className='lang-'+lang;
   document.querySelectorAll('.lang-btn').forEach(btn=>{
