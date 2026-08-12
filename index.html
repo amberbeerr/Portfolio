@@ -152,6 +152,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 /* Projects */
 #projects{max-width:1100px;margin:0 auto;padding:100px 48px;}
 .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:16px;}
+.tools-showcase{grid-column:1/-1;margin-top:8px;}
+.tools-showcase-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.tool-card{padding:20px;background:var(--warm);border-radius:4px;border-left:2px solid var(--accent2);display:flex;flex-direction:column;gap:8px;}
+.tool-card-name{font-size:14px;font-weight:500;color:var(--ink);}
+.tool-card-name .ext-link{font-size:14px;font-weight:500;}
+.tool-card-desc{font-size:12.5px;color:var(--ink2);line-height:1.65;}
+.tool-card-stat{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.03em;color:var(--accent);margin-top:2px;}
+@media(max-width:768px){.tools-grid{grid-template-columns:1fr;}}
 .project-card{background:var(--warm);border-radius:4px;padding:36px;border:1px solid var(--line);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
 .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
 .project-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(28,26,23,.08);}
@@ -230,7 +239,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
-  <p class="hero-eyebrow">Brand &amp; Product Marketing | Business &amp; Partnerships | Lifestyle &amp; Wellness Brands (APAC)</p>
+  <p class="hero-eyebrow">Brand &amp; Product Marketing | Content &amp; Positioning | Lifestyle &amp; Wellness Brands (APAC)</p>
   <h1 class="hero-name">Amber<br><em>Chang</em></h1>
   <p class="hero-desc">
     <span data-lang="zh">十年間橫跨上海與台灣，從國際品牌到新創團隊，從品牌策略到自主創業。熱衷於大健康產業，相信健康科學能改變日常生活，擅長從品牌策略、內容系統到商業落地，建立真正能運作的品牌系統。</span>
@@ -404,26 +413,45 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
   <div class="projects-grid">
 
     <div class="project-card">
-      <div class="project-period">2026 — <span data-lang="zh">孵化中</span><span data-lang="en">Incubating</span></div>
+      <div class="project-period">2025/07 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
       <div class="project-name">Human Space</div>
       <div class="project-role"><span data-lang="zh">創辦人 · 內容策略</span><span data-lang="en">Founder · Content Strategy</span></div>
-      <div class="project-desc"><span data-lang="zh">創立帳號一個月內，粉絲突破萬人，瀏覽量突破 100 萬。以「大人的童書」為核心，驗證腦神經科學結合心理學的內容模型與社群成長策略。</span><span data-lang="en">Reached 10K followers and 1M+ views within the first month of launch. Validated a neuroscience × psychology content model built on "picture books for grown-ups."</span></div>
+      <div class="project-desc"><span data-lang="zh">創立帳號一個月內，粉絲突破萬人，瀏覽量突破 100 萬。以「大人的童書」為核心，驗證腦神經科學結合心理學的內容模型與社群成長策略；並自主學習 AI 輔助開發，將想法快速落地為可用的互動工具。</span><span data-lang="en">Reached 10K followers and 1M+ views within the first month of launch. Validated a neuroscience × psychology content model built on "picture books for grown-ups," and self-taught AI-assisted development to turn ideas into working interactive tools.</span></div>
       <div class="project-highlights">
         <div class="highlight"><span data-lang="zh">1個月：粉絲破萬、瀏覽量破百萬</span><span data-lang="en">1 month: 10K followers, 1M+ views</span></div>
         <div class="highlight"><span data-lang="zh">腦神經科學 × 心理學知識品牌</span><span data-lang="en">Neuroscience × Psychology knowledge brand</span></div>
-        <div class="highlight"><span data-lang="zh">持續驗證內容模型中</span><span data-lang="en">Ongoing content model validation</span></div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-period">2026 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
+      <div class="project-period">2025 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
       <div class="project-name"><span data-lang="zh">AI 自動化系統</span><span data-lang="en">AI Automation Systems</span></div>
       <div class="project-role"><span data-lang="zh">獨立開發</span><span data-lang="en">Independent Development</span></div>
       <div class="project-desc"><span data-lang="zh">將 AI 導入內容研究、創作與工作流程，建立可重複運作的知識生產系統。</span><span data-lang="en">Integrated AI into content research, creation, and workflows to build repeatable knowledge production systems that scale.</span></div>
       <div class="project-highlights">
-        <div class="highlight"><span data-lang="zh">內容自動搜集系統（Google Script + AI）</span><span data-lang="en">Content aggregation system (Google Script + AI)</span></div>
-        <div class="highlight"><span data-lang="zh">對話影片自動生成系統</span><span data-lang="en">Auto dialogue video generation system</span></div>
+        <div class="highlight"><span data-lang="zh">內容自動搜集系統（Google Script + AI）— NourNow</span><span data-lang="en">Content aggregation system (Google Script + AI) — NourNow</span></div>
         <div class="highlight"><span data-lang="zh">Life OS 個人管理系統</span><span data-lang="en">Life OS personal management system</span></div>
+      </div>
+    </div>
+
+    <div class="tools-showcase">
+      <div class="tools-showcase-label"><span data-lang="zh">Human Space · AI 小工具展示</span><span data-lang="en">Human Space · AI Tool Showcase</span></div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-card-name"><a href="https://human-space-hms.github.io/36-questions/" target="_blank" class="ext-link"><span data-lang="zh">感情 36 問</span><span data-lang="en">36 Questions on Love</span></a></div>
+          <div class="tool-card-desc"><span data-lang="zh">AI 輔助開發的互動問題卡，帶領使用者透過 36 道提問建立更深的關係連結。</span><span data-lang="en">AI-assisted interactive question deck guiding users through 36 questions to build deeper connection.</span></div>
+          <div class="tool-card-stat"><span data-lang="zh">近千人領取 · 5萬+ 曝光 · +400 粉絲</span><span data-lang="en">~1,000 claimed · 50K+ impressions · +400 followers</span></div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-name"><a href="https://human-space-hms.github.io/HSP/" target="_blank" class="ext-link"><span data-lang="zh">高敏人自我認識測驗</span><span data-lang="en">HSP Self-Discovery Quiz</span></a></div>
+          <div class="tool-card-desc"><span data-lang="zh">為高敏感族群（HSP）打造的互動自我探索工具，將心理學概念轉化為可即時應用的自我覺察體驗。</span><span data-lang="en">An interactive self-assessment for Highly Sensitive Persons, turning psychology concepts into an accessible self-discovery experience.</span></div>
+          <div class="tool-card-stat"><span data-lang="zh">上線 24 小時內近百人領取</span><span data-lang="en">~100 users within 24 hours of launch</span></div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-card-name"><a href="https://amberbeerr.github.io/hms-dialogue-generator/" target="_blank" class="ext-link"><span data-lang="zh">對話式短影音生成工具</span><span data-lang="en">Dialogue-to-Video Generator</span></a></div>
+          <div class="tool-card-desc"><span data-lang="zh">AI 輔助開發，將對話式短影音的製作流程自動化。</span><span data-lang="en">AI-assisted tool that automates dialogue-style short-video production.</span></div>
+          <div class="tool-card-stat"><span data-lang="zh">製作時間：數小時 → 10 分鐘內</span><span data-lang="en">Production time: hours → under 10 minutes</span></div>
+        </div>
       </div>
     </div>
 
