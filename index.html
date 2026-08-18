@@ -32,7 +32,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 /* Hero */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 48px 80px;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 60% at 80% 20%,rgba(196,149,106,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(139,111,78,.08) 0%,transparent 60%);}
-.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;max-width:640px;line-height:1.6;}
 .hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,10vw,140px);font-weight:300;line-height:.9;letter-spacing:-.02em;color:var(--ink);margin-bottom:32px;}
 .hero-name em{font-style:italic;color:var(--accent);}
 .hero-desc{max-width:600px;font-size:16px;color:var(--ink2);line-height:1.9;margin-bottom:48px;}
@@ -48,21 +48,71 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .section-label::after{content:'';flex:1;height:1px;background:var(--line);max-width:120px;}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:24px;}
 
-/* About */
-#about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px;margin:0 auto;padding:100px 48px;}
-.about-text{font-size:15px;line-height:1.9;color:var(--ink2);margin-bottom:20px;}
-.about-text strong{color:var(--ink);font-weight:500;}
-.about-right{display:flex;flex-direction:column;gap:16px;}
-.capability-item{padding:22px 24px;background:var(--warm);border-radius:4px;border-left:2px solid var(--accent2);}
-.cap-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px;}
-.cap-desc{font-size:13px;color:var(--ink2);line-height:1.6;}
+/* Snapshot */
+#snapshot{max-width:1100px;margin:0 auto;padding:100px 48px 60px;}
+.snapshot-text{max-width:760px;}
+.snapshot-text p{font-size:15px;line-height:1.9;color:var(--ink2);margin-bottom:18px;}
+.snapshot-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.snapshot-card{padding:24px;background:var(--warm);border-radius:4px;border-left:2px solid var(--accent2);text-decoration:none;display:block;transition:transform .25s;}
+.snapshot-card:hover{transform:translateY(-3px);}
+.snapshot-card-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--ink3);margin-bottom:8px;}
+.snapshot-card-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:6px;}
+.snapshot-card-desc{font-size:12.5px;color:var(--ink2);line-height:1.6;}
+
+/* Case Studies */
+#work{max-width:1100px;margin:0 auto;padding:60px 48px 100px;}
+.case-study{background:var(--warm);border:1px solid var(--line);border-radius:6px;padding:44px 40px;margin-bottom:28px;scroll-margin-top:100px;}
+.case-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--sand);}
+.case-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
+.case-name{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,56px);font-weight:400;color:var(--ink);line-height:1.05;margin-bottom:12px;}
+.case-title{font-family:'DM Sans',sans-serif;font-size:clamp(15px,1.8vw,17px);font-weight:400;color:var(--ink2);line-height:1.5;margin-bottom:10px;max-width:520px;}
+.case-sub{font-size:12.5px;letter-spacing:.06em;color:var(--accent);}
+.case-role{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);text-align:right;}
+.case-steps{display:grid;grid-template-columns:150px 1fr;gap:0 32px;}
+.case-step{display:contents;}
+.case-step-label{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent2);padding-top:2px;padding-bottom:20px;}
+.case-step-text{font-size:14px;color:var(--ink2);line-height:1.85;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:20px;}
+.case-step:last-child .case-step-text{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.case-gallery{margin-top:8px;grid-column:1/-1;}
+.case-links{margin-top:16px;}
+@media(max-width:768px){
+  .case-steps{grid-template-columns:1fr;}
+  .case-step-label{padding-bottom:6px;}
+  .case-role{text-align:left;}
+}
+
+/* Experiments */
+#experiments{max-width:1100px;margin:0 auto;padding:60px 48px 100px;}
+.exp-intro{max-width:680px;font-size:14.5px;color:var(--ink2);line-height:1.85;margin-bottom:48px;}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.exp-card{background:var(--warm);border:1px solid var(--line);border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:14px;}
+.exp-name{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--ink);}
+.exp-row{display:flex;flex-direction:column;gap:2px;}
+.exp-row-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);}
+.exp-row-text{font-size:12.5px;color:var(--ink2);line-height:1.65;}
+@media(max-width:900px){.exp-grid{grid-template-columns:1fr;}}
+
+/* Bring */
+#bring{max-width:1100px;margin:0 auto;padding:60px 48px 100px;}
+.bring-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:16px;}
+.bring-item{padding:28px;background:var(--warm);border-radius:4px;border-left:2px solid var(--accent2);}
+.bring-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:8px;}
+.bring-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:8px;}
+.bring-desc{font-size:13px;color:var(--ink2);line-height:1.7;}
+@media(max-width:768px){.bring-grid{grid-template-columns:1fr;}}
+
+/* About / Snapshot right column removed — Tier labels for timeline */
+.tier-heading{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 28px;padding-bottom:10px;border-bottom:1px solid var(--sand);}
+.tier-block{margin-bottom:56px;}
+.tier-block:last-child{margin-bottom:0;}
 
 /* Timeline */
 #experience{background:var(--warm);padding:100px 48px;}
 .timeline-inner{max-width:1100px;margin:0 auto;}
 .timeline{position:relative;margin-top:16px;}
 .timeline::before{content:'';position:absolute;left:160px;top:0;bottom:0;width:1px;background:var(--sand);}
-.timeline-item{display:grid;grid-template-columns:160px 1fr;gap:48px;margin-bottom:56px;position:relative;}
+.timeline-item{display:grid;grid-template-columns:160px 1fr;gap:48px;margin-bottom:56px;position:relative;scroll-margin-top:120px;}
+.timeline-item:last-child{margin-bottom:0;}
 .timeline-item::before{content:'';position:absolute;left:156px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent2);border:2px solid var(--warm);}
 .timeline-year{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);text-align:right;padding-top:4px;line-height:1.6;padding-right:8px;}
 .timeline-role{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:4px;}
@@ -149,30 +199,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 }
 .lightbox-close:hover { opacity: 1; }
 
-/* Projects */
-#projects{max-width:1100px;margin:0 auto;padding:100px 48px;}
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:16px;}
-.tools-showcase{grid-column:1/-1;margin-top:8px;}
-.tools-showcase-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
-.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.tool-card{padding:20px;background:var(--warm);border-radius:4px;border-left:2px solid var(--accent2);display:flex;flex-direction:column;gap:8px;}
-.tool-card-name{font-size:14px;font-weight:500;color:var(--ink);}
-.tool-card-name .ext-link{font-size:14px;font-weight:500;}
-.tool-card-desc{font-size:12.5px;color:var(--ink2);line-height:1.65;}
-.tool-card-stat{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.03em;color:var(--accent);margin-top:2px;}
-@media(max-width:768px){.tools-grid{grid-template-columns:1fr;}}
-.project-card{background:var(--warm);border-radius:4px;padding:36px;border:1px solid var(--line);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
-.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
-.project-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(28,26,23,.08);}
-.project-card:hover::before{transform:scaleX(1);}
-.project-period{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-bottom:12px;}
-.project-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px;line-height:1.2;}
-.project-role{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
-.project-desc{font-size:14px;color:var(--ink2);line-height:1.8;margin-bottom:20px;}
-.project-highlights{display:flex;flex-direction:column;gap:6px;}
-.highlight{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink2);}
-.highlight::before{content:'—';color:var(--accent2);flex-shrink:0;margin-top:1px;}
-
 /* Skills */
 #skills{max-width:1100px;margin:0 auto;padding:100px 48px;}
 .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:16px;}
@@ -182,12 +208,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .skill-item{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:8px;}
 .skill-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
 
-/* Vision */
-#vision{background:var(--warm);padding:100px 48px;}
-.vision-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.vision-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;font-style:italic;line-height:1.4;color:var(--ink);}
-.vision-quote em{color:var(--accent);font-style:normal;}
+/* Exploring / Looking For */
+#exploring{background:var(--warm);padding:100px 48px;}
+.exploring-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.exploring-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.6vw,42px);font-weight:300;font-style:italic;line-height:1.4;color:var(--ink);}
+.exploring-quote em{color:var(--accent);font-style:normal;}
 .vision-text{font-size:15px;color:var(--ink2);line-height:1.9;margin-bottom:20px;}
+.vision-subhead{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.vision-block{margin-bottom:32px;}
+.vision-block:last-child{margin-bottom:0;}
 .vision-chips{display:flex;gap:10px;flex-wrap:wrap;}
 .year-chip{padding:8px 16px;border:1px solid var(--accent2);border-radius:2px;font-size:12px;letter-spacing:.08em;color:var(--accent);}
 
@@ -212,15 +241,15 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
   nav{padding:16px 20px;}
   .nav-links{display:none;}
   .hero{padding:0 24px 64px;}
-  #about{grid-template-columns:1fr;gap:40px;padding:64px 24px;}
-  #experience,#projects,#skills,#vision,#contact{padding:64px 24px;}
-  .vision-inner{grid-template-columns:1fr;gap:40px;}
-  .projects-grid{grid-template-columns:1fr;}
+  #snapshot,#work,#experiments,#bring,#experience,#skills,#exploring,#contact{padding:64px 24px;}
+  .snapshot-row{grid-template-columns:1fr;}
+  .exploring-inner{grid-template-columns:1fr;gap:40px;}
   .skills-grid{grid-template-columns:1fr 1fr;}
   .hero-stats{gap:24px;}
   .timeline::before{left:100px;}
   .timeline-item{grid-template-columns:100px 1fr;gap:24px;}
   .timeline-item::before{left:96px;}
+  .case-study{padding:28px 20px;}
   footer{flex-direction:column;gap:8px;text-align:center;}
 }
 </style>
@@ -235,15 +264,15 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- 01 Hero -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
-  <p class="hero-eyebrow">Brand &amp; Product Marketing | Content &amp; Positioning | Lifestyle &amp; Wellness Brands (APAC)</p>
+  <p class="hero-eyebrow">Brand &amp; Product Strategy | Health, Wellness &amp; Consumer Experience</p>
   <h1 class="hero-name">Amber<br><em>Chang</em></h1>
   <p class="hero-desc">
-    <span data-lang="zh">十年間橫跨上海與台灣，從國際品牌到新創團隊，從品牌策略到自主創業。熱衷於大健康產業，相信健康科學能改變日常生活，擅長從品牌策略、內容系統到商業落地，建立真正能運作的品牌系統。</span>
-    <span data-lang="en">Ten years across Shanghai and Taiwan — from international brands to startup teams, from brand strategy to building my own. Passionate about the wellness industry, I believe health science can transform everyday life. I specialize in building brand systems that actually work — from strategy and content to commercial execution.</span>
+    <span data-lang="zh">十年間橫跨台灣、中國與亞太市場，累積品牌策略、產品開發、內容、成長與創業經驗。我習慣從使用者與市場需求出發，將想法轉化為品牌、產品與體驗；近年也開始探索科技如何應用於健康、Wellness、教育與人類發展。</span>
+    <span data-lang="en">10 years of experience across Taiwan, China and APAC, spanning brand strategy, product development, content, growth and entrepreneurship. I enjoy turning consumer insights into brands, products and experiences, and am increasingly exploring how technology can create better experiences in health, wellness, education and human development.</span>
   </p>
   <div class="hero-stats">
     <div>
@@ -265,132 +294,124 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
   </div>
 </div>
 
-<!-- About -->
-<div id="about">
-  <div class="about-left">
-    <div class="section-label"><span data-lang="zh">關於我</span><span data-lang="en">About Me</span></div>
-    <p class="about-text">
-      <span data-lang="zh">過去十年間，我從 PChome 的電商營運起步，歷經偉門廣告的整合行銷、上海新創的品牌孵化，到丹麥家具集團的亞太品牌策略。每一段經歷都讓我學會，在不同的市場、團隊與資源條件下，找到品牌成長的方向，並把策略一步步落實成成果。</span>
-      <span data-lang="en">Over the past decade, I've built my career from e-commerce operations at PChome, through integrated marketing at Wunderman, brand incubation at a Shanghai startup, to Asia-Pacific brand strategy at a Danish furniture group. Each chapter taught me how to find the direction for brand growth — and turn strategy into measurable results — across different markets, teams, and resource constraints.</span>
-    </p>
-    <p class="about-text">
-      <span data-lang="zh">三年前回到台灣，我選擇投入創業，親自從零打造品牌，將品牌定位、產品開發、通路拓展到內容經營，放進真實市場中反覆驗證。這段經歷讓我不只是累積更多技能，也重新確認自己最熱衷於「參與品牌從無到有、從策略到落地的每一個關鍵階段」。</span>
-      <span data-lang="en">Three years ago I returned to Taiwan and chose to build from zero — taking brand positioning, product development, channel expansion, and content operations into the real market to test and iterate. This experience didn't just add to my skills; it confirmed what I'm most passionate about: being part of every critical stage as a brand goes from nothing to something real.</span>
-    </p>
-    <p class="about-text">
-      <span data-lang="zh">現在我希望將這十年累積的品牌策略、商業思維與跨域整合能力，帶到更大的平台，持續打造真正具有長期價值，也能建立健康生活的產業。</span>
-      <span data-lang="en">Now I'm ready to bring a decade of brand strategy, business thinking, and cross-domain integration into a larger platform — to keep building brands with lasting value in the wellness and lifestyle space.</span>
-    </p>
+<!-- 02 Career Snapshot -->
+<section id="snapshot">
+  <div class="section-label"><span data-lang="zh">職涯縮影</span><span data-lang="en">Career Snapshot</span></div>
+  <div class="snapshot-text">
+    <p><span data-lang="zh">過去十年，我從電商營運起步，歷經整合行銷代理商、上海新創的品牌孵化，到丹麥設計品牌的亞太策略角色，累積了在不同市場、團隊與資源條件下推動品牌成長的能力。</span><span data-lang="en">Over the past decade, I've moved from e-commerce operations, through integrated marketing and brand incubation in Shanghai, to an APAC brand strategy role for a Danish design group — building the ability to drive brand growth across different markets, teams and resource constraints.</span></p>
+    <p><span data-lang="zh">三年前回到台灣後，我選擇親自從零打造品牌與內容社群，並在這個過程中開始自主學習、實驗 AI 輔助工具，將想法快速落地成可被使用者驗證的數位體驗。</span><span data-lang="en">Three years ago I returned to Taiwan to build brands and content communities from zero — and along the way, began teaching myself to experiment with AI-assisted tools, turning ideas into digital experiences that could be tested with real users.</span></p>
   </div>
-  <div class="about-right">
-    <div class="capability-item">
-      <div class="cap-title"><span data-lang="zh">品牌建立與商業落地</span><span data-lang="en">Brand Building & Commercial Execution</span></div>
-      <div class="cap-desc"><span data-lang="zh">從品牌定位、產品研發、GTM 策略到 B2B 銷售體系，習慣在白紙上建立能夠實際運作的品牌系統。</span><span data-lang="en">From brand positioning and product development to GTM strategy and B2B sales systems — I'm most at home building brand systems that actually work on a blank page.</span></div>
+  <div class="snapshot-row">
+    <a href="#cs-nournow" class="snapshot-card">
+      <div class="snapshot-card-period">2025/05 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
+      <div class="snapshot-card-name">NourNow</div>
+      <div class="snapshot-card-desc"><span data-lang="zh">以科學、內容與社群，建立健康與 Wellness 知識平台</span><span data-lang="en">Building a health &amp; wellness knowledge platform through science, content and community</span></div>
+    </a>
+    <a href="#cs-wave" class="snapshot-card">
+      <div class="snapshot-card-period">2022/12 — 2025/05</div>
+      <div class="snapshot-card-name">Wave</div>
+      <div class="snapshot-card-desc"><span data-lang="zh">從 0→1 建立消費型 Wellness 品牌</span><span data-lang="en">Building a Consumer Wellness Brand from 0→1</span></div>
+    </a>
+    <a href="#tl-nineunited" class="snapshot-card">
+      <div class="snapshot-card-period">2019/12 — 2022/11</div>
+      <div class="snapshot-card-name">NineUnited TAK</div>
+      <div class="snapshot-card-desc"><span data-lang="zh">丹麥家具集團亞太區總部（上海），擔任 HAY 與 Stellar Works 兩品牌行銷負責人</span><span data-lang="en">APAC HQ (Shanghai) of a Danish furniture group — led marketing for two brands, HAY and Stellar Works</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- 03 Selected Case Studies -->
+<section id="work">
+  <div class="section-label"><span data-lang="zh">精選案例</span><span data-lang="en">Selected Case Studies</span></div>
+
+  <!-- Human Space -->
+  <div class="case-study" id="cs-humanspace">
+    <div class="case-top">
+      <div>
+        <div class="case-eyebrow">2025/07 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
+        <div class="case-name">Human Space</div>
+        <div class="case-title"><span data-lang="zh">從 0→1 探索自我覺察的數位平台</span><span data-lang="en">Building a self-awareness platform from 0→1</span></div>
+        <div class="case-sub"><span data-lang="zh">創辦人</span><span data-lang="en">Founder</span></div>
+      </div>
     </div>
-    <div class="capability-item">
-      <div class="cap-title"><span data-lang="zh">跨市場策略整合</span><span data-lang="en">Cross-Market Strategy Integration</span></div>
-      <div class="cap-desc"><span data-lang="zh">負責 Stellar Works 品牌在澳洲、日本、韓國、新加坡、香港、台灣、東南亞等 7 個亞太市場的行銷策略規劃，擔任總部與在地市場間的溝通橋樑，同時支援 HAY 品牌的區域行銷執行。代表品牌統籌國際展會，確保跨市場執行落地一致。</span><span data-lang="en">Responsible for Stellar Works' marketing strategy across 7 APAC markets (Australia, Japan, Korea, Singapore, Hong Kong, Taiwan, Southeast Asia), serving as the communication bridge between HQ and local markets, while supporting regional marketing execution for HAY. Represented brands at international exhibitions to ensure consistent cross-market execution.</span></div>
-    </div>
-    <div class="capability-item">
-      <div class="cap-title"><span data-lang="zh">內容策略與品牌成長</span><span data-lang="en">Content Strategy & Brand Growth</span></div>
-      <div class="cap-desc"><span data-lang="zh">NourNow 6 個月達成破萬粉絲、百萬瀏覽；Human Space 複製同一套框架，1 個月內即達成相同規模，由此證明內容成長模型可複製、可加速。</span><span data-lang="en">NourNow reached 10K followers and 1M views in 6 months. Human Space applied the same framework and achieved the same scale within 1 month, demonstrating that the content growth model is repeatable and scalable.</span></div>
-    </div>
-    <div class="capability-item">
-      <div class="cap-title"><span data-lang="zh">AI 驅動的工作系統</span><span data-lang="en">AI-Driven Work Systems</span></div>
-      <div class="cap-desc"><span data-lang="zh">將 AI 導入內容研究、創作與工作流程，建立可重複運作的知識生產系統，持續探索 AI 如何放大個人與團隊效能。</span><span data-lang="en">Integrated AI into content research, creation, and workflows to build repeatable knowledge production systems. Continuously exploring how AI can amplify personal and team capacity.</span></div>
+    <div class="case-steps">
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">背景</span><span data-lang="en">Context</span></div>
+        <div class="case-step-text"><span data-lang="zh">2025 年 7 月自主啟動的個人專案，希望將過去十年的品牌與內容經驗，實驗性地應用在腦神經科學與心理學主題上，測試「大人的童書」這個定位能否被更廣泛的讀者接受。</span><span data-lang="en">A self-initiated project launched in July 2025, applying a decade of brand and content experience to neuroscience and psychology topics — testing whether a "picture books for grown-ups" positioning could resonate beyond a niche wellness audience.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">機會點</span><span data-lang="en">Opportunity</span></div>
+        <div class="case-step-text"><span data-lang="zh">中文市場的心理學／腦科學內容，往往偏學術或過度簡化。我看到中間存在一個機會：在不失準確性的前提下，把知識轉譯成好讀、好互動的內容形式。</span><span data-lang="en">Psychology and neuroscience content in Chinese-language media tends to be either overly academic or oversimplified. I saw an opportunity to translate research into accessible, engaging formats without losing credibility.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">我的角色</span><span data-lang="en">My Role</span></div>
+        <div class="case-step-text"><span data-lang="zh">獨立創辦人——負責定位、內容方向、社群成長，並自主學習 AI 輔助開發，獨力打造三款互動小工具。</span><span data-lang="en">Independent founder — responsible for positioning, content direction and community growth, and self-taught AI-assisted development to independently build three interactive tools.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">做法</span><span data-lang="en">Approach</span></div>
+        <div class="case-step-text"><span data-lang="zh">以「大人的童書」作為核心定位，將心理學概念拆解為輕量、可互動的內容單元，並用 AI 輔助工具快速將想法原型化、發布上線，不依賴技術團隊。</span><span data-lang="en">Defined "picture books for grown-ups" as the core positioning; broke psychology concepts into lightweight, interactive content units; used AI-assisted tools to quickly prototype and publish experiments without a technical team.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">關鍵決策</span><span data-lang="en">Key Decisions</span></div>
+        <div class="case-step-text"><span data-lang="zh">選擇多個小而聚焦的互動實驗，而非一開始就打造單一大型平台，讓每個想法能獨立驗證、快速迭代。</span><span data-lang="en">Chose several small, focused interactive experiments over building one large platform upfront, so each idea could be validated and iterated independently.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">執行</span><span data-lang="en">Execution</span></div>
+        <div class="case-step-text"><span data-lang="zh">上線後陸續推出三個互動實驗——感情 36 問、HSP 自我認識測驗、對話式短影音生成工具，皆在帳號成立後數週內獨立完成並發布。</span><span data-lang="en">Launched three interactive experiments in succession — a relationship question deck, an HSP self-assessment quiz, and a dialogue-to-video tool — each independently built and shipped within weeks of the account's launch.</span></div>
+        <div class="case-gallery">
+          <div class="ext-links">
+            <a href="https://human-space-hms.github.io/36-questions/" target="_blank" class="ext-link"><span data-lang="zh">感情 36 問</span><span data-lang="en">36 Questions</span></a>
+            <a href="https://human-space-hms.github.io/HSP/" target="_blank" class="ext-link"><span data-lang="zh">HSP 測驗</span><span data-lang="en">HSP Quiz</span></a>
+            <a href="https://amberbeerr.github.io/hms-dialogue-generator/" target="_blank" class="ext-link"><span data-lang="zh">影音生成工具</span><span data-lang="en">Video Generator</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">成果</span><span data-lang="en">Results</span></div>
+        <div class="case-step-text"><span data-lang="zh">上線一個月內粉絲突破 10,000 人、瀏覽量突破 100 萬；感情 36 問近千人領取，帶動 5 萬+ 曝光與 400+ 新粉絲；HSP 測驗上線 24 小時內近百人領取。</span><span data-lang="en">10,000+ followers and 1M+ views within the first month of launch. The 36 Questions tool was claimed by nearly 1,000 users, driving 50K+ impressions and 400+ new followers. The HSP quiz reached nearly 100 users within 24 hours of launch.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">學到什麼</span><span data-lang="en">What I Learned</span></div>
+        <div class="case-step-text"><span data-lang="zh">驗證了「內容驅動 + 輕量實驗」的做法可以在短時間內帶來真實的受眾成長，也讓我對「AI 輔助工具如何延伸品牌與內容工作、變成互動式產品體驗」產生更大的興趣。</span><span data-lang="en">Validated that a content-led, lightweight-experimentation approach can generate real audience traction quickly — and grew my interest in how AI-assisted tools can extend brand and content work into interactive product experiences.</span></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Experience -->
-<div id="experience">
-  <div class="timeline-inner">
-    <div class="section-label"><span data-lang="zh">工作經歷</span><span data-lang="en">Experience</span></div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-year">2015/09–2017/09</div>
-        <div class="timeline-content">
-          <div class="timeline-role"><span data-lang="zh">產品企劃</span><span data-lang="en">Product Planner</span></div>
-          <div class="timeline-company">PChome 24h Shopping</div>
-          <div class="timeline-desc"><span data-lang="zh">負責家具線的數位行銷與銷售，涵蓋選品、推廣、庫存管理與廠商關係維護。建立電商營運完整認知。</span><span data-lang="en">Managed digital marketing and sales for the furniture category — product curation, promotions, inventory management, and vendor relations. Built a foundational understanding of e-commerce operations.</span></div>
-          <div class="timeline-tags"><span class="tag">E-Commerce</span><span class="tag">Digital Marketing</span><span class="tag">Vendor Management</span></div>
-        </div>
+  <!-- NourNow -->
+  <div class="case-study" id="cs-nournow">
+    <div class="case-top">
+      <div>
+        <div class="case-eyebrow">2025/05 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
+        <div class="case-name">NourNow</div>
+        <div class="case-title"><span data-lang="zh">以科學、內容與社群，建立健康與 Wellness 知識平台</span><span data-lang="en">Building a health and wellness knowledge platform through science, content and community</span></div>
+        <div class="case-sub"><span data-lang="zh">共同創辦人 · 內容策略</span><span data-lang="en">Co-Founder · Content Strategy</span></div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2018/01–2018/06</div>
-        <div class="timeline-content">
-          <div class="timeline-role"><span data-lang="zh">資深客戶執行</span><span data-lang="en">Senior Account Executive</span></div>
-          <div class="timeline-company">Wunderman 偉門廣告</div>
-          <div class="timeline-desc"><span data-lang="zh">負責家樂福官網行銷維運，以及樂事新口味上市整合行銷 Campaign 的統籌執行，深化整合行銷與客戶管理能力。</span><span data-lang="en">Managed Carrefour's official website marketing operations and led the integrated marketing campaign for Lay's new flavor launch in Taiwan.</span></div>
-          <div class="timeline-tags"><span class="tag">Integrated Marketing</span><span class="tag">Campaign Management</span><span class="tag">Client Services</span></div>
-        </div>
+    </div>
+    <div class="case-steps">
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">背景</span><span data-lang="en">Context</span></div>
+        <div class="case-step-text"><span data-lang="zh">2025 年 5 月共同創辦，7 月正式營運的華語健康媒體社群，目標是讓年輕華語讀者更容易理解並實踐健康、Wellness 相關知識。</span><span data-lang="en">Co-founded in May 2025 and officially launched in July, a Chinese-language wellness media community aimed at making health and wellness knowledge more accessible for younger Chinese-speaking audiences.</span></div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2018/09–2019/11<br>Shanghai</div>
-        <div class="timeline-content">
-          <div class="timeline-role"><span data-lang="zh">產品內容策劃</span><span data-lang="en">Product Content Strategist</span></div>
-          <div class="timeline-company">LaneHub 瓴里家具 · Shanghai</div>
-          <div class="timeline-desc"><span data-lang="zh">主導兩品牌（Blossom、Skyline）內容行銷，創下自營平台歷史最高瀏覽量。規劃執行大型線下活動，含 70+ 嘉賓沉浸式藝術展，吸引百萬級 KOL 與多家媒體報導。天貓旗艦店 200+ SKU 上架，年度 GMV 貢獻超過人民幣百萬元，位列全公司品牌銷售榜第 3 名。獨立孵化子品牌 Apathe，1 個月完成孵化方案並一次提報通過。</span><span data-lang="en">Led content marketing for two brands (Blossom, Skyline), driving the platform's highest-ever view count. Planned and executed a 70+ guest immersive art exhibition, drawing million-follower KOLs and major media coverage. Managed the flagship Tmall store (200+ SKUs), contributing to annual GMV exceeding RMB 1 million and ranking 3rd company-wide in brand sales. Independently incubated sub-brand Apathe, from concept to positioning in one month, approved on first pitch.</span></div>
-          <div class="timeline-tags"><span class="tag">Brand Incubation</span><span class="tag">O2O</span><span class="tag">GTM</span><span class="tag">Sales Ranking Top 3</span></div>
-          <div class="photo-gallery">
-            <img src="LANEHUB-01.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
-            <img src="LANEHUB-02.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
-            <img src="LANEHUB-03.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
-          </div>
-          <div class="ext-links">
-            <a href="https://www.sohu.com/a/284425128_171445" target="_blank" class="ext-link"><span data-lang="zh">開幕新聞</span><span data-lang="en">Opening Press</span></a>
-            <a href="https://www.sohu.com/a/338773869_391501" target="_blank" class="ext-link"><span data-lang="zh">活動報導</span><span data-lang="en">Event Coverage</span></a>
-          </div>
-        </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">機會點</span><span data-lang="en">Opportunity</span></div>
+        <div class="case-step-text"><span data-lang="zh">這個地區的健康／Wellness 內容常常過於臨床，或過度追逐流行話題；我們看到打造一個「有編輯品味、以社群為核心」的品牌的空間。</span><span data-lang="en">Health and wellness content in the region tends to be either overly clinical or trend-chasing. We saw the opportunity to build an editorially credible, community-first brand instead.</span></div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2019/12–2022/11</div>
-        <div class="timeline-content">
-          <div class="timeline-role"><span data-lang="zh">行銷主管</span><span data-lang="en">Marketing Manager</span></div>
-          <div class="timeline-company">NineUnited TAK · Asia-Pacific HQ</div>
-          <div class="timeline-desc"><span data-lang="zh">負責 Stellar Works 品牌於 7 個亞太市場的年度行銷策略規劃與落地執行，擔任總部與區域市場間的溝通橋樑；同時支援 HAY 團隊的區域執行工作。每月產出 8 篇內容支援跨市場傳播節奏；支援 50+ 產品系列年度落地上市；於 Design Shanghai、3 Days of Design 等展會服務 50+ VIP 經銷商客戶。</span><span data-lang="en">Owned Stellar Works' annual marketing strategy and execution across 7 APAC markets, serving as the communication bridge between HQ and regional markets, while supporting the HAY team's regional execution. Delivered 8 pieces of content monthly to support cross-market communication rhythm. Supported the annual APAC rollout of 50+ product collections. Served 50+ VIP distributor clients at exhibitions including Design Shanghai and 3 Days of Design.</span></div>
-          <div class="timeline-tags"><span class="tag">APAC Brand Strategy</span><span class="tag">Design Shanghai 2022</span><span class="tag">Cross-Regional</span><span class="tag">50+ VIP Clients</span></div>
-          <div class="photo-gallery">
-            <img src="NU-01.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
-            <img src="NU-02.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
-            <img src="NU-03.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
-          </div>
-          <div class="ext-links">
-            <a href="https://baijiahao.baidu.com/s?id=1768202439207626155&wfr=spider&for=pc" target="_blank" class="ext-link"><span data-lang="zh">設計上海報導</span><span data-lang="en">Design Shanghai Coverage</span></a>
-            <a href="https://www.forbeschina.com/billionaires/62422" target="_blank" class="ext-link">Forbes China · Studio 9</a>
-          </div>
-        </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">我的角色</span><span data-lang="en">My Role</span></div>
+        <div class="case-step-text"><span data-lang="zh">共同創辦人，主責內容策略、編輯方向、品牌合作與社群活動規劃。</span><span data-lang="en">Co-Founder, responsible for content strategy, editorial direction, brand partnerships and community event planning.</span></div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2022/12–2025/05</div>
-        <div class="timeline-content">
-          <div class="timeline-role"><span data-lang="zh">共同創辦人 · COO · Sales Head</span><span data-lang="en">Co-Founder · COO · Sales Head</span></div>
-          <div class="timeline-company">Wave Drink · Taiwan</div>
-          <div class="timeline-desc"><span data-lang="zh">合夥創立台灣首個草本放鬆機能飲品牌。從品牌定位、產品研發至行銷推廣、庫存物流系統一手建立。B2B 銷售成功拓展至全台含外島 100+ 餐廳及飯店，並與 lululemon、Kiehl's、La Mer、Volvo、SOGO、富邦藝術基金會、台灣設計研究院及學學文化創意基金會等品牌與機構達成行銷合作。透過通路拓展與品牌合作，創造超過新台幣 150 萬元年營收。</span><span data-lang="en">Co-founded Taiwan's first herbal relaxation functional beverage brand. Built everything from scratch: brand identity, product R&amp;D, marketing, inventory and logistics. Expanded B2B to 100+ restaurants and hotels across Taiwan. Partnered with lululemon, Kiehl's, La Mer, Volvo, SOGO, Fubon Art Foundation, Taiwan Design Research Institute, and Xue Xue. Generated annual revenue exceeding NT$1.5 million through channel expansion and brand collaborations.</span></div>
-          <div class="timeline-tags"><span class="tag">Startup · COO</span><span class="tag">Brand Building</span><span class="tag">NT$1.5M+ Revenue</span><span class="tag">lululemon · Kiehl's · La Mer · Volvo</span></div>
-          <div class="photo-gallery">
-            <img src="Wave-01.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
-            <img src="Wave-02.jpg" alt="Wave Drink" onclick="openLightbox(this.src)">
-            <img src="Wave-03.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
-          </div>
-          <div class="ext-links">
-            <a href="https://www.instagram.com/drinkwave_official" target="_blank" class="ext-link">Instagram</a>
-          </div>
-        </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">做法</span><span data-lang="en">Approach</span></div>
+        <div class="case-step-text"><span data-lang="zh">建立涵蓋營養科學、運動健康、Longevity、腦神經科學、心理健康等主題的內容支柱；透過與相關品牌合作建立可信度與觸及，而非宣稱自身具備臨床專業。</span><span data-lang="en">Built content pillars spanning nutrition, fitness, longevity, neuroscience and mental wellbeing. Partnered with relevant brands to build credibility and reach, rather than claiming clinical expertise.</span></div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2025/05–<span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
-        <div class="timeline-content">
-          <div class="timeline-role"><span data-lang="zh">共同創辦人 · 內容編輯</span><span data-lang="en">Co-Founder · Content Editor</span></div>
-          <div class="timeline-company">NourNow · <span data-lang="zh">華語健康媒體社群</span><span data-lang="en">Chinese Wellness Media Community</span></div>
-          <div class="timeline-desc"><span data-lang="zh">致力推廣健康生活方式的華語媒體平台。創立至今籌辦 10+ 場百人運動派對，六個月內粉絲成長至 23,000+、單篇內容突破百萬瀏覽量、累積 2000+ 會員。建立品牌合作關係，合作夥伴包含 Garmin、Columbia、綠藤生機、ESEN、Tan Tan、SHHH、1010 HOPE、Nomel 與 MATA Taiwan；並與 CouchSpace、Sports Nation、Chill Taiwan 共同策劃社群活動。</span><span data-lang="en">A Chinese-language wellness media platform promoting healthier living. Organized 10+ fitness events with 100+ attendees. Grew to 23,000+ followers within six months, with a single post reaching over 1M views, and 2,000+ community members. Built brand partnerships including Garmin, Columbia, Greenvines, ESEN, Tan Tan, SHHH, 1010 HOPE, Nomel, and MATA Taiwan, and co-hosted community events with CouchSpace, Sports Nation, and Chill Taiwan.</span></div>
-          <div class="timeline-tags"><span class="tag">Media Startup</span><span class="tag">Content Strategy</span><span class="tag">23K+ Followers</span><span class="tag">Garmin · Columbia</span></div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">關鍵決策</span><span data-lang="en">Key Decisions</span></div>
+        <div class="case-step-text"><span data-lang="zh">除了數位內容，同步投入實體社群活動（10+ 場百人運動派對），優先建立信任與黏著度，而不只是追求觸及數字。</span><span data-lang="en">Invested in in-person community events (10+ fitness gatherings with 100+ attendees) alongside digital content, prioritizing trust and retention over reach alone.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">執行</span><span data-lang="en">Execution</span></div>
+        <div class="case-step-text"><span data-lang="zh">六個月內將 Instagram 粉絲成長至 23,000+、社群會員突破 2,000 人；建立與 Garmin、Columbia、綠藤生機、ESEN 等品牌的合作關係，並與 CouchSpace、Sports Nation、Chill Taiwan 共同策劃社群活動。</span><span data-lang="en">Grew Instagram to 23,000+ followers and 2,000+ community members within six months. Built partnerships with Garmin, Columbia, Greenvines, ESEN and others, and co-hosted community events with CouchSpace, Sports Nation, and Chill Taiwan.</span></div>
+        <div class="case-gallery">
           <div class="photo-gallery">
             <img src="NN-01.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
             <img src="NN-02.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
@@ -402,137 +423,338 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
           </div>
         </div>
       </div>
-
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">成果</span><span data-lang="en">Results</span></div>
+        <div class="case-step-text"><span data-lang="zh">23,000+ 粉絲、2,000+ 社群會員、單篇內容突破百萬瀏覽、10+ 品牌合作夥伴、10+ 場實體活動，全部在六個月內達成。</span><span data-lang="en">23,000+ followers, 2,000+ community members, a single post reaching over 1M views, 10+ partner brands, and 10+ in-person events — all within six months.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">學到什麼</span><span data-lang="en">What I Learned</span></div>
+        <div class="case-step-text"><span data-lang="zh">再次印證編輯信任感與社群經營的複利效果，往往比單純衝內容量更快看到成果；也更清楚該如何在不誇大專業的前提下，把科學知識轉譯成好理解的內容。</span><span data-lang="en">Reinforced how editorial trust and community programming compound faster than content volume alone — and sharpened my sense of how to translate science communication into accessible content without overstating expertise.</span></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Projects -->
-<section id="projects">
-  <div class="section-label"><span data-lang="zh">自主項目</span><span data-lang="en">Projects</span></div>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-period">2025/07 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
-      <div class="project-name">Human Space</div>
-      <div class="project-role"><span data-lang="zh">創辦人 · 內容策略</span><span data-lang="en">Founder · Content Strategy</span></div>
-      <div class="project-desc"><span data-lang="zh">創立帳號一個月內，粉絲突破萬人，瀏覽量突破 100 萬。以「大人的童書」為核心，驗證腦神經科學結合心理學的內容模型與社群成長策略；並自主學習 AI 輔助開發，將想法快速落地為可用的互動工具。</span><span data-lang="en">Reached 10K followers and 1M+ views within the first month of launch. Validated a neuroscience × psychology content model built on "picture books for grown-ups," and self-taught AI-assisted development to turn ideas into working interactive tools.</span></div>
-      <div class="project-highlights">
-        <div class="highlight"><span data-lang="zh">1個月：粉絲破萬、瀏覽量破百萬</span><span data-lang="en">1 month: 10K followers, 1M+ views</span></div>
-        <div class="highlight"><span data-lang="zh">腦神經科學 × 心理學知識品牌</span><span data-lang="en">Neuroscience × Psychology knowledge brand</span></div>
+  <!-- Wave -->
+  <div class="case-study" id="cs-wave">
+    <div class="case-top">
+      <div>
+        <div class="case-eyebrow">2022/12 — 2025/05</div>
+        <div class="case-name">Wave</div>
+        <div class="case-title"><span data-lang="zh">從 0→1 建立消費型 Wellness 品牌</span><span data-lang="en">Building a Consumer Wellness Brand from 0→1</span></div>
+        <div class="case-sub"><span data-lang="zh">共同創辦人 · COO · Sales Head</span><span data-lang="en">Co-Founder · COO · Sales Head</span></div>
       </div>
     </div>
-
-    <div class="project-card">
-      <div class="project-period">2025 — <span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
-      <div class="project-name"><span data-lang="zh">AI 自動化系統</span><span data-lang="en">AI Automation Systems</span></div>
-      <div class="project-role"><span data-lang="zh">獨立開發</span><span data-lang="en">Independent Development</span></div>
-      <div class="project-desc"><span data-lang="zh">將 AI 導入內容研究、創作與工作流程，建立可重複運作的知識生產系統。</span><span data-lang="en">Integrated AI into content research, creation, and workflows to build repeatable knowledge production systems that scale.</span></div>
-      <div class="project-highlights">
-        <div class="highlight"><span data-lang="zh">內容自動搜集系統（Google Script + AI）— NourNow</span><span data-lang="en">Content aggregation system (Google Script + AI) — NourNow</span></div>
-        <div class="highlight"><span data-lang="zh">Life OS 個人管理系統</span><span data-lang="en">Life OS personal management system</span></div>
+    <div class="case-steps">
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">背景</span><span data-lang="en">Context</span></div>
+        <div class="case-step-text"><span data-lang="zh">2022 年底共同創辦台灣首個草本放鬆機能飲品牌，從概念一路做到有實際營收的 B2B 生意。</span><span data-lang="en">Co-founded in late 2022 — Taiwan's first herbal relaxation functional beverage brand, built from concept through to a real, revenue-generating B2B business.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">挑戰</span><span data-lang="en">Challenge</span></div>
+        <div class="case-step-text"><span data-lang="zh">進入一個台灣市場沒有明確先例的品類，必須在資金有限、團隊精簡的情況下，同時建立產品可信度與通路。</span><span data-lang="en">Entering a category with no clear local precedent, needing to build both product credibility and distribution from scratch with limited capital and a small team.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">我的角色</span><span data-lang="en">My Role</span></div>
+        <div class="case-step-text"><span data-lang="zh">共同創辦人 · COO · Sales Head——負責品牌定位、產品開發協調、GTM、B2B 銷售與營運系統。</span><span data-lang="en">Co-Founder, COO & Sales Head — responsible for brand positioning, product development coordination, GTM, B2B sales and operations.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">做法</span><span data-lang="en">Approach</span></div>
+        <div class="case-step-text"><span data-lang="zh">優先聚焦 B2B 通路合作與品牌聯名，而非大眾零售，藉此在資源有限的情況下較快建立信任與能見度。</span><span data-lang="en">Focused on B2B channel partnerships and premium brand collaborations rather than mass retail, to build credibility quickly with a limited team.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">關鍵決策</span><span data-lang="en">Key Decisions</span></div>
+        <div class="case-step-text"><span data-lang="zh">選擇跟調性相符的品牌合作（lululemon、Kiehl's、La Mer、Volvo 等），而非以折扣換取大量零售鋪貨，用短期銷量換取長期品牌資產。</span><span data-lang="en">Prioritized brand-aligned partnerships (lululemon, Kiehl's, La Mer, Volvo, and others) over broad discount-driven retail distribution, trading short-term volume for long-term brand equity.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">執行</span><span data-lang="en">Execution</span></div>
+        <div class="case-step-text"><span data-lang="zh">從品牌識別、產品到庫存物流系統一手建立；B2B 通路拓展至全台含外島 100+ 餐廳與飯店。</span><span data-lang="en">Built brand identity, product, inventory and logistics systems from scratch. Expanded B2B distribution to 100+ restaurants and hotels across Taiwan.</span></div>
+        <div class="case-gallery">
+          <div class="photo-gallery">
+            <img src="Wave-01.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
+            <img src="Wave-02.jpg" alt="Wave Drink" onclick="openLightbox(this.src)">
+            <img src="Wave-03.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
+          </div>
+          <div class="ext-links">
+            <a href="https://www.instagram.com/drinkwave_official" target="_blank" class="ext-link">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">成果</span><span data-lang="en">Results</span></div>
+        <div class="case-step-text"><span data-lang="zh">100+ B2B 通路點、超過新台幣 150 萬元年營收，並與 lululemon、Kiehl's、La Mer、Volvo、SOGO、富邦藝術基金會、台灣設計研究院、學學文化創意基金會建立合作關係。</span><span data-lang="en">100+ B2B channel points, NT$1.5M+ annual revenue, and partnerships with lululemon, Kiehl's, La Mer, Volvo, SOGO, Fubon Art Foundation, Taiwan Design Research Institute, and Xue Xue.</span></div>
+      </div>
+      <div class="case-step">
+        <div class="case-step-label"><span data-lang="zh">學到什麼</span><span data-lang="en">What I Learned</span></div>
+        <div class="case-step-text"><span data-lang="zh">第一手理解一個想法如何變成真正的產品與生意，也深刻體會實體消費品新創在規模化過程中，營運與資本結構會是比產品力更早出現的挑戰——這個經驗持續影響我今天評估商業模式的方式。</span><span data-lang="en">Gained a direct, hands-on understanding of how an idea becomes a real product and a real business — and experienced firsthand how operational and capital-structure challenges can surface earlier than product challenges when scaling a physical-goods startup. That lesson continues to shape how I evaluate business models today.</span></div>
       </div>
     </div>
+  </div>
 
-    <div class="tools-showcase">
-      <div class="tools-showcase-label"><span data-lang="zh">Human Space · AI 小工具展示</span><span data-lang="en">Human Space · AI Tool Showcase</span></div>
-      <div class="tools-grid">
-        <div class="tool-card">
-          <div class="tool-card-name"><a href="https://human-space-hms.github.io/36-questions/" target="_blank" class="ext-link"><span data-lang="zh">感情 36 問</span><span data-lang="en">36 Questions on Love</span></a></div>
-          <div class="tool-card-desc"><span data-lang="zh">AI 輔助開發的互動問題卡，帶領使用者透過 36 道提問建立更深的關係連結。</span><span data-lang="en">AI-assisted interactive question deck guiding users through 36 questions to build deeper connection.</span></div>
-          <div class="tool-card-stat"><span data-lang="zh">近千人領取 · 5萬+ 曝光 · +400 粉絲</span><span data-lang="en">~1,000 claimed · 50K+ impressions · +400 followers</span></div>
-        </div>
-        <div class="tool-card">
-          <div class="tool-card-name"><a href="https://human-space-hms.github.io/HSP/" target="_blank" class="ext-link"><span data-lang="zh">高敏人自我認識測驗</span><span data-lang="en">HSP Self-Discovery Quiz</span></a></div>
-          <div class="tool-card-desc"><span data-lang="zh">為高敏感族群（HSP）打造的互動自我探索工具，將心理學概念轉化為可即時應用的自我覺察體驗。</span><span data-lang="en">An interactive self-assessment for Highly Sensitive Persons, turning psychology concepts into an accessible self-discovery experience.</span></div>
-          <div class="tool-card-stat"><span data-lang="zh">上線 24 小時內近百人領取</span><span data-lang="en">~100 users within 24 hours of launch</span></div>
-        </div>
-        <div class="tool-card">
-          <div class="tool-card-name"><a href="https://amberbeerr.github.io/hms-dialogue-generator/" target="_blank" class="ext-link"><span data-lang="zh">對話式短影音生成工具</span><span data-lang="en">Dialogue-to-Video Generator</span></a></div>
-          <div class="tool-card-desc"><span data-lang="zh">AI 輔助開發，將對話式短影音的製作流程自動化。</span><span data-lang="en">AI-assisted tool that automates dialogue-style short-video production.</span></div>
-          <div class="tool-card-stat"><span data-lang="zh">製作時間：數小時 → 10 分鐘內</span><span data-lang="en">Production time: hours → under 10 minutes</span></div>
-        </div>
-      </div>
+</section>
+
+<!-- 04 AI-assisted & Digital Experiments -->
+<section id="experiments">
+  <div class="section-label"><span data-lang="zh">AI 輔助與數位實驗</span><span data-lang="en">AI-assisted &amp; Digital Experiments</span></div>
+  <p class="exp-intro"><span data-lang="zh">在 Human Space 的實驗過程中，我自主學習並運用 AI 輔助工具，獨立將想法原型化並發布上線。以下是三個自發性的小型實驗，目的不是證明我是 AI 專家，而是展現我對新興工具的好奇心，以及把想法變成使用者可體驗介面的能力。</span><span data-lang="en">As part of the Human Space experiment, I taught myself to use AI-assisted tools to independently prototype and publish ideas. The three self-initiated projects below aren't meant to prove technical expertise — they demonstrate curiosity, self-directed learning, and the ability to turn ideas into simple, user-facing experiences.</span></p>
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <div class="exp-name"><a href="https://human-space-hms.github.io/36-questions/" target="_blank" class="ext-link"><span data-lang="zh">感情 36 問</span><span data-lang="en">36 Questions</span></a></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">發想</span><span data-lang="en">Idea</span></div><div class="exp-row-text"><span data-lang="zh">參考關係心理學研究，設計 36 道漸進式提問，幫助兩人建立更深的連結。</span><span data-lang="en">A 36-question card deck, inspired by relationship psychology research, designed to build closeness between two people.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">使用者需求</span><span data-lang="en">User Need</span></div><div class="exp-row-text"><span data-lang="zh">人們想要有結構地建立關係連結，卻不知從何開始。</span><span data-lang="en">People want a structured way to build meaningful connection but don't know where to start.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">體驗</span><span data-lang="en">Experience</span></div><div class="exp-row-text"><span data-lang="zh">簡單、手機友善的互動問題卡，可獨自使用或與他人一起進行。</span><span data-lang="en">A simple, mobile-friendly interactive question deck, usable solo or with a partner.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label">AI <span data-lang="zh">輔助</span><span data-lang="en">Assistance</span></div><div class="exp-row-text"><span data-lang="zh">獨立自學使用 AI 輔助開發工具完成，無正式工程背景。</span><span data-lang="en">Independently built using AI-assisted development tools, self-taught with no formal engineering background.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">學到什麼</span><span data-lang="en">What I Learned</span></div><div class="exp-row-text"><span data-lang="zh">一個範疇小、聚焦明確的互動體驗，也能不靠大團隊帶來實際的參與度與成長。</span><span data-lang="en">A small, well-scoped interactive experience can drive meaningful engagement and growth without a large team.</span></div></div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-name"><a href="https://human-space-hms.github.io/HSP/" target="_blank" class="ext-link"><span data-lang="zh">HSP 自我認識測驗</span><span data-lang="en">HSP Quiz</span></a></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">發想</span><span data-lang="en">Idea</span></div><div class="exp-row-text"><span data-lang="zh">參考高敏感特質（Sensory Processing Sensitivity）相關研究設計的自我探索測驗，並非臨床診斷工具。</span><span data-lang="en">An accessible self-assessment inspired by research on sensory processing sensitivity (HSP) — not a clinical diagnostic tool.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">使用者需求</span><span data-lang="en">User Need</span></div><div class="exp-row-text"><span data-lang="zh">對高敏感特質好奇的人，需要一個輕鬆、非臨床的方式認識自己。</span><span data-lang="en">People curious about high-sensitivity traits want an easy, non-clinical way to reflect on their own tendencies.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">體驗</span><span data-lang="en">Experience</span></div><div class="exp-row-text"><span data-lang="zh">將心理學概念轉譯為生活化語言的簡短互動測驗。</span><span data-lang="en">A short interactive quiz that translates psychological concepts into everyday language.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label">AI <span data-lang="zh">輔助</span><span data-lang="en">Assistance</span></div><div class="exp-row-text"><span data-lang="zh">以 AI 輔助工具開發，內容由心理學研究轉譯而成。</span><span data-lang="en">Built with AI-assisted development; content translated from psychology research into accessible copy.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">學到什麼</span><span data-lang="en">What I Learned</span></div><div class="exp-row-text"><span data-lang="zh">再次確認轉譯心理學概念時，精準且謹慎的用字非常重要——並清楚標示這是自我反思工具，而非診斷。</span><span data-lang="en">Reinforced how important careful, accurate framing is when translating psychological concepts for a general audience — and clearly labeling it as self-reflection, not diagnosis.</span></div></div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-name"><a href="https://amberbeerr.github.io/hms-dialogue-generator/" target="_blank" class="ext-link"><span data-lang="zh">對話式短影音生成工具</span><span data-lang="en">Dialogue-to-Video Generator</span></a></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">發想</span><span data-lang="en">Idea</span></div><div class="exp-row-text"><span data-lang="zh">將文字對話腳本更有效率地轉換為短影音內容的工具。</span><span data-lang="en">A tool to turn written dialogue/scripts into short-form video content more efficiently.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">使用者需求</span><span data-lang="en">User Need</span></div><div class="exp-row-text"><span data-lang="zh">手動製作對話式短影音耗時且重複性高。</span><span data-lang="en">Producing dialogue-style short videos manually is slow and repetitive.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">體驗</span><span data-lang="en">Experience</span></div><div class="exp-row-text"><span data-lang="zh">貼上腳本，即可產出結構化的短影音草稿。</span><span data-lang="en">Paste a script in, get a structured short-video draft out.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label">AI <span data-lang="zh">輔助</span><span data-lang="en">Assistance</span></div><div class="exp-row-text"><span data-lang="zh">屬於 AI 輔助的創作流程實驗，而非完整軟體產品。</span><span data-lang="en">An AI-assisted creative workflow experiment, not a full software product.</span></div></div>
+      <div class="exp-row"><div class="exp-row-label"><span data-lang="zh">學到什麼</span><span data-lang="en">What I Learned</span></div><div class="exp-row-text"><span data-lang="zh">實際動手做 AI 輔助流程實驗，讓我更清楚自動化真正能幫上忙的地方，以及仍然需要人的判斷的地方。</span><span data-lang="en">Hands-on experimentation with AI-assisted workflows sharpened my sense of where automation genuinely helps content production — and where human judgment still matters most.</span></div></div>
     </div>
 
   </div>
 </section>
 
-<!-- Skills -->
+<!-- 05 What I Bring -->
+<section id="bring">
+  <div class="section-label"><span data-lang="zh">我能帶來的價值</span><span data-lang="en">What I Bring</span></div>
+  <div class="bring-grid">
+    <div class="bring-item">
+      <div class="bring-num">01</div>
+      <div class="bring-title"><span data-lang="zh">從 0→1</span><span data-lang="en">Build from 0→1</span></div>
+      <div class="bring-desc"><span data-lang="zh">從品牌定位、產品開發到 GTM 與合作夥伴，我習慣將想法一步步轉化為真實的產品與商業實驗。</span><span data-lang="en">From brand positioning and product development to GTM and partnerships, I have experience turning ideas into real-world products and businesses.</span></div>
+    </div>
+    <div class="bring-item">
+      <div class="bring-num">02</div>
+      <div class="bring-title"><span data-lang="zh">理解人</span><span data-lang="en">Understand People</span></div>
+      <div class="bring-desc"><span data-lang="zh">從 Wellness、健康內容到消費品牌，我長期從使用者需求出發，思考人們如何理解、選擇與使用一個產品或想法。</span><span data-lang="en">My work across wellness, health content and consumer brands has strengthened my understanding of audiences, their needs and how they engage with ideas.</span></div>
+    </div>
+    <div class="bring-item">
+      <div class="bring-num">03</div>
+      <div class="bring-title"><span data-lang="zh">連結策略與執行</span><span data-lang="en">Connect Strategy &amp; Execution</span></div>
+      <div class="bring-desc"><span data-lang="zh">我習慣在策略與實際執行之間切換，從方向、內容、產品到落地一起思考。</span><span data-lang="en">I work comfortably between big-picture positioning and hands-on execution.</span></div>
+    </div>
+    <div class="bring-item">
+      <div class="bring-num">04</div>
+      <div class="bring-title"><span data-lang="zh">跨市場經驗</span><span data-lang="en">Cross-Market Experience</span></div>
+      <div class="bring-desc"><span data-lang="zh">十年間橫跨台灣、中國與亞太市場，累積不同市場、團隊與合作夥伴之間的協作經驗。</span><span data-lang="en">10 years across Taiwan, China and APAC have taught me how to work across different markets, teams and stakeholders.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Career Experience -->
+<div id="experience">
+  <div class="timeline-inner">
+    <div class="section-label"><span data-lang="zh">完整職涯經歷</span><span data-lang="en">Career Experience</span></div>
+    <div class="timeline">
+
+      <div class="tier-block">
+        <div class="tier-heading"><span data-lang="zh">近期核心經歷</span><span data-lang="en">Recent Core Experience</span></div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2025/05–<span data-lang="zh">至今</span><span data-lang="en">Present</span></div>
+          <div class="timeline-content">
+            <div class="timeline-role"><span data-lang="zh">共同創辦人 · 內容編輯</span><span data-lang="en">Co-Founder · Content Editor</span></div>
+            <div class="timeline-company">NourNow · <span data-lang="zh">華語健康媒體社群</span><span data-lang="en">Chinese Wellness Media Community</span></div>
+            <div class="timeline-desc"><span data-lang="zh">致力推廣健康生活方式的華語媒體平台。創立至今籌辦 10+ 場百人運動派對，六個月內粉絲成長至 23,000+、單篇內容突破百萬瀏覽量、累積 2000+ 會員。建立品牌合作關係，合作夥伴包含 Garmin、Columbia、綠藤生機、ESEN、Tan Tan、SHHH、1010 HOPE、Nomel 與 MATA Taiwan；並與 CouchSpace、Sports Nation、Chill Taiwan 共同策劃社群活動。</span><span data-lang="en">A Chinese-language wellness media platform promoting healthier living. Organized 10+ fitness events with 100+ attendees. Grew to 23,000+ followers within six months, with a single post reaching over 1M views, and 2,000+ community members. Built brand partnerships including Garmin, Columbia, Greenvines, ESEN, Tan Tan, SHHH, 1010 HOPE, Nomel, and MATA Taiwan, and co-hosted community events with CouchSpace, Sports Nation, and Chill Taiwan.</span></div>
+            <div class="timeline-tags"><span class="tag">Media Startup</span><span class="tag">Content Strategy</span><span class="tag">23K+ Followers</span><span class="tag">Garmin · Columbia</span></div>
+            <div class="photo-gallery">
+              <img src="NN-01.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
+              <img src="NN-02.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
+              <img src="NN-03.JPEG" alt="NourNow" onclick="openLightbox(this.src)">
+            </div>
+            <div class="ext-links">
+              <a href="https://www.nour-now.com/" target="_blank" class="ext-link"><span data-lang="zh">官網</span><span data-lang="en">Website</span></a>
+              <a href="https://www.instagram.com/bynournow" target="_blank" class="ext-link">Instagram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2022/12–2025/05</div>
+          <div class="timeline-content">
+            <div class="timeline-role"><span data-lang="zh">共同創辦人 · COO · Sales Head</span><span data-lang="en">Co-Founder · COO · Sales Head</span></div>
+            <div class="timeline-company">Wave Drink · Taiwan</div>
+            <div class="timeline-desc"><span data-lang="zh">合夥創立台灣首個草本放鬆機能飲品牌。從品牌定位、產品研發至行銷推廣、庫存物流系統一手建立。B2B 銷售成功拓展至全台含外島 100+ 餐廳及飯店，並與 lululemon、Kiehl's、La Mer、Volvo、SOGO、富邦藝術基金會、台灣設計研究院及學學文化創意基金會等品牌與機構達成行銷合作。透過通路拓展與品牌合作，創造超過新台幣 150 萬元年營收。</span><span data-lang="en">Co-founded Taiwan's first herbal relaxation functional beverage brand. Built everything from scratch: brand identity, product R&amp;D, marketing, inventory and logistics. Expanded B2B to 100+ restaurants and hotels across Taiwan. Partnered with lululemon, Kiehl's, La Mer, Volvo, SOGO, Fubon Art Foundation, Taiwan Design Research Institute, and Xue Xue. Generated annual revenue exceeding NT$1.5 million through channel expansion and brand collaborations.</span></div>
+            <div class="timeline-tags"><span class="tag">Startup · COO</span><span class="tag">Brand Building</span><span class="tag">NT$1.5M+ Revenue</span><span class="tag">lululemon · Kiehl's · La Mer · Volvo</span></div>
+            <div class="photo-gallery">
+              <img src="Wave-01.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
+              <img src="Wave-02.jpg" alt="Wave Drink" onclick="openLightbox(this.src)">
+              <img src="Wave-03.JPG" alt="Wave Drink" onclick="openLightbox(this.src)">
+            </div>
+            <div class="ext-links">
+              <a href="https://www.instagram.com/drinkwave_official" target="_blank" class="ext-link">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-block">
+        <div class="tier-heading"><span data-lang="zh">跨市場專業經歷</span><span data-lang="en">Cross-Market Professional Experience</span></div>
+
+        <div class="timeline-item" id="tl-nineunited">
+          <div class="timeline-year">2019/12–2022/11</div>
+          <div class="timeline-content">
+            <div class="timeline-role"><span data-lang="zh">行銷主管</span><span data-lang="en">Marketing Manager</span></div>
+            <div class="timeline-company">NineUnited TAK · Asia-Pacific HQ</div>
+            <div class="timeline-desc"><span data-lang="zh">負責 Stellar Works 品牌於 7 個亞太市場的年度行銷策略規劃與落地執行，擔任總部與區域市場間的溝通橋樑；同時支援 HAY 團隊的區域執行工作。每月產出 8 篇內容支援跨市場傳播節奏；支援 50+ 產品系列年度落地上市；於 Design Shanghai、3 Days of Design 等展會服務 50+ VIP 經銷商客戶。</span><span data-lang="en">Owned Stellar Works' annual marketing strategy and execution across 7 APAC markets, serving as the communication bridge between HQ and regional markets, while supporting the HAY team's regional execution. Delivered 8 pieces of content monthly to support cross-market communication rhythm. Supported the annual APAC rollout of 50+ product collections. Served 50+ VIP distributor clients at exhibitions including Design Shanghai and 3 Days of Design.</span></div>
+            <div class="timeline-tags"><span class="tag">APAC Brand Strategy</span><span class="tag">Design Shanghai 2022</span><span class="tag">Cross-Regional</span><span class="tag">50+ VIP Clients</span></div>
+            <div class="photo-gallery">
+              <img src="NU-01.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
+              <img src="NU-02.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
+              <img src="NU-03.JPG" alt="NineUnited TAK" onclick="openLightbox(this.src)">
+            </div>
+            <div class="ext-links">
+              <a href="https://baijiahao.baidu.com/s?id=1768202439207626155&wfr=spider&for=pc" target="_blank" class="ext-link"><span data-lang="zh">設計上海報導</span><span data-lang="en">Design Shanghai Coverage</span></a>
+              <a href="https://www.forbeschina.com/billionaires/62422" target="_blank" class="ext-link">Forbes China · Studio 9</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2018/09–2019/11<br>Shanghai</div>
+          <div class="timeline-content">
+            <div class="timeline-role"><span data-lang="zh">產品內容策劃</span><span data-lang="en">Product Content Strategist</span></div>
+            <div class="timeline-company">LaneHub 瓴里家具 · Shanghai</div>
+            <div class="timeline-desc"><span data-lang="zh">主導兩品牌（Blossom、Skyline）內容行銷，創下自營平台歷史最高瀏覽量。規劃執行大型線下活動，含 70+ 嘉賓沉浸式藝術展，吸引百萬級 KOL 與多家媒體報導。天貓旗艦店 200+ SKU 上架，年度 GMV 貢獻超過人民幣百萬元，位列全公司品牌銷售榜第 3 名。獨立孵化子品牌 Apathe，1 個月完成孵化方案並一次提報通過。</span><span data-lang="en">Led content marketing for two brands (Blossom, Skyline), driving the platform's highest-ever view count. Planned and executed a 70+ guest immersive art exhibition, drawing million-follower KOLs and major media coverage. Managed the flagship Tmall store (200+ SKUs), contributing to annual GMV exceeding RMB 1 million and ranking 3rd company-wide in brand sales. Independently incubated sub-brand Apathe, from concept to positioning in one month, approved on first pitch.</span></div>
+            <div class="timeline-tags"><span class="tag">Brand Incubation</span><span class="tag">O2O</span><span class="tag">GTM</span><span class="tag">Sales Ranking Top 3</span></div>
+            <div class="photo-gallery">
+              <img src="LANEHUB-01.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
+              <img src="LANEHUB-02.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
+              <img src="LANEHUB-03.JPG" alt="LaneHub Shanghai" onclick="openLightbox(this.src)">
+            </div>
+            <div class="ext-links">
+              <a href="https://www.sohu.com/a/284425128_171445" target="_blank" class="ext-link"><span data-lang="zh">開幕新聞</span><span data-lang="en">Opening Press</span></a>
+              <a href="https://www.sohu.com/a/338773869_391501" target="_blank" class="ext-link"><span data-lang="zh">活動報導</span><span data-lang="en">Event Coverage</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-block">
+        <div class="tier-heading"><span data-lang="zh">早期職涯基礎</span><span data-lang="en">Early Career Foundation</span></div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2018/01–2018/06</div>
+          <div class="timeline-content">
+            <div class="timeline-role"><span data-lang="zh">資深客戶執行</span><span data-lang="en">Senior Account Executive</span></div>
+            <div class="timeline-company">Wunderman 偉門廣告</div>
+            <div class="timeline-desc"><span data-lang="zh">負責家樂福官網行銷維運，以及樂事新口味上市整合行銷 Campaign 的統籌執行，深化整合行銷與客戶管理能力。</span><span data-lang="en">Managed Carrefour's official website marketing operations and led the integrated marketing campaign for Lay's new flavor launch in Taiwan.</span></div>
+            <div class="timeline-tags"><span class="tag">Integrated Marketing</span><span class="tag">Campaign Management</span><span class="tag">Client Services</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2015/09–2017/09</div>
+          <div class="timeline-content">
+            <div class="timeline-role"><span data-lang="zh">產品企劃</span><span data-lang="en">Product Planner</span></div>
+            <div class="timeline-company">PChome 24h Shopping</div>
+            <div class="timeline-desc"><span data-lang="zh">負責家具線的數位行銷與銷售，涵蓋選品、推廣、庫存管理與廠商關係維護。建立電商營運完整認知。</span><span data-lang="en">Managed digital marketing and sales for the furniture category — product curation, promotions, inventory management, and vendor relations. Built a foundational understanding of e-commerce operations.</span></div>
+            <div class="timeline-tags"><span class="tag">E-Commerce</span><span class="tag">Digital Marketing</span><span class="tag">Vendor Management</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 07 Skills -->
 <section id="skills">
   <div class="section-label"><span data-lang="zh">能力圖譜</span><span data-lang="en">Skills</span></div>
   <div class="skills-grid">
     <div class="skill-group">
-      <div class="skill-group-title"><span data-lang="zh">品牌</span><span data-lang="en">Brand</span></div>
+      <div class="skill-group-title"><span data-lang="zh">策略</span><span data-lang="en">Strategy</span></div>
       <div class="skill-list">
         <div class="skill-item"><span data-lang="zh">品牌策略</span><span data-lang="en">Brand Strategy</span></div>
-        <div class="skill-item"><span data-lang="zh">品牌定位</span><span data-lang="en">Brand Positioning</span></div>
+        <div class="skill-item"><span data-lang="zh">產品思維</span><span data-lang="en">Product Thinking</span></div>
+        <div class="skill-item"><span data-lang="zh">定位策略</span><span data-lang="en">Positioning</span></div>
         <div class="skill-item">Go-to-Market</div>
-        <div class="skill-item"><span data-lang="zh">新事業開發</span><span data-lang="en">New Business Dev</span></div>
         <div class="skill-item"><span data-lang="zh">市場洞察</span><span data-lang="en">Market Insight</span></div>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title"><span data-lang="zh">管理</span><span data-lang="en">Management</span></div>
-      <div class="skill-list">
-        <div class="skill-item"><span data-lang="zh">專案管理</span><span data-lang="en">Project Management</span></div>
-        <div class="skill-item"><span data-lang="zh">跨部門協作</span><span data-lang="en">Cross-Functional</span></div>
-        <div class="skill-item"><span data-lang="zh">跨國溝通</span><span data-lang="en">Cross-Border Comms</span></div>
-        <div class="skill-item"><span data-lang="zh">營運流程</span><span data-lang="en">Operations</span></div>
-        <div class="skill-item"><span data-lang="zh">通路拓展</span><span data-lang="en">Channel Expansion</span></div>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title"><span data-lang="zh">成長</span><span data-lang="en">Growth</span></div>
+      <div class="skill-group-title"><span data-lang="zh">成長與行銷</span><span data-lang="en">Growth &amp; Marketing</span></div>
       <div class="skill-list">
         <div class="skill-item"><span data-lang="zh">內容策略</span><span data-lang="en">Content Strategy</span></div>
         <div class="skill-item"><span data-lang="zh">社群成長</span><span data-lang="en">Community Growth</span></div>
-        <div class="skill-item"><span data-lang="zh">品牌敘事</span><span data-lang="en">Brand Storytelling</span></div>
-        <div class="skill-item"><span data-lang="zh">數據分析</span><span data-lang="en">Data Analytics</span></div>
-        <div class="skill-item"><span data-lang="zh">AI 工作流程</span><span data-lang="en">AI Workflows</span></div>
+        <div class="skill-item"><span data-lang="zh">夥伴關係</span><span data-lang="en">Partnerships</span></div>
+        <div class="skill-item">B2B <span data-lang="zh">行銷</span><span data-lang="en">Marketing</span></div>
+        <div class="skill-item"><span data-lang="zh">消費者行銷</span><span data-lang="en">Consumer Marketing</span></div>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title"><span data-lang="zh">工具</span><span data-lang="en">Tools</span></div>
+      <div class="skill-group-title"><span data-lang="zh">執行</span><span data-lang="en">Execution</span></div>
       <div class="skill-list">
-        <div class="skill-item">AI (Gemini / Claude)</div>
-        <div class="skill-item">Google Workspace</div>
-        <div class="skill-item">Apps Script</div>
-        <div class="skill-item">Canva</div>
-        <div class="skill-item">IG / 小紅書 / Threads</div>
+        <div class="skill-item"><span data-lang="zh">專案管理</span><span data-lang="en">Project Management</span></div>
+        <div class="skill-item"><span data-lang="zh">跨部門協作</span><span data-lang="en">Cross-Functional Collaboration</span></div>
+        <div class="skill-item"><span data-lang="zh">亞太區協調</span><span data-lang="en">APAC Coordination</span></div>
+        <div class="skill-item"><span data-lang="zh">商業開發</span><span data-lang="en">Business Development</span></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span data-lang="zh">數位與 AI 輔助</span><span data-lang="en">Digital &amp; AI-assisted</span></div>
+      <div class="skill-list">
+        <div class="skill-item"><span data-lang="zh">AI 輔助工作流程</span><span data-lang="en">AI-assisted Workflows</span></div>
+        <div class="skill-item"><span data-lang="zh">數位實驗</span><span data-lang="en">Digital Experimentation</span></div>
+        <div class="skill-item"><span data-lang="zh">互動內容設計</span><span data-lang="en">Interactive Content</span></div>
+        <div class="skill-item">No-code / <span data-lang="zh">低代碼實驗</span><span data-lang="en">Low-code Experimentation</span></div>
+        <div class="skill-item"><span data-lang="zh">內容自動化</span><span data-lang="en">Content Automation</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Vision -->
-<div id="vision">
-  <div class="vision-inner">
-    <div class="vision-quote">
-      <span data-lang="zh">我想加入的，<br>不只是一份工作——<br>而是一個<em>長期有意義的品牌。</em></span>
-      <span data-lang="en">I'm not looking<br>for just a job —<br>I'm looking for a brand<br>worth <em>building for the long run.</em></span>
+<!-- 08 What I'm Exploring + What I'm Looking For -->
+<div id="exploring">
+  <div class="exploring-inner">
+    <div class="exploring-quote">
+      <span data-lang="zh">從品牌，<br>走向<em>科技與人</em><br>交會的地方。</span>
+      <span data-lang="en">From brand,<br>toward where <em>technology</em><br>meets <em>people.</em></span>
     </div>
     <div>
-      <div class="section-label"><span data-lang="zh">未來方向</span><span data-lang="en">Vision</span></div>
-      <p class="vision-text">
-        <span data-lang="zh">我希望加入一個具有長期願景的品牌，持續深耕健康與生活風格產業，參與品牌策略、產品上市與市場成長。</span>
-        <span data-lang="en">I want to join a brand with long-term vision — to keep building deep expertise in the health and lifestyle space, contributing to brand strategy, product launches, and market growth.</span>
-      </p>
-      <p class="vision-text">
-        <span data-lang="zh">期待在跨部門合作中，串連品牌、產品與市場，打造真正改善人們生活的產品與服務，也持續累積自己在 Wellness 與新創領域的專業深度。</span>
-        <span data-lang="en">I look forward to connecting brand, product, and market through cross-functional collaboration — building products and services that genuinely improve people's lives, while deepening my expertise in wellness and new ventures.</span>
-      </p>
+      <div class="section-label"><span data-lang="zh">正在探索的方向</span><span data-lang="en">What I'm Exploring</span></div>
+      <div class="vision-block">
+        <p class="vision-text">
+          <span data-lang="zh">我正在探索科技與人的需求交會的可能，特別關注健康、Wellness、教育與人類發展。</span>
+          <span data-lang="en">I'm interested in opportunities where technology intersects with human needs — particularly across health, wellness, education and human development.</span>
+        </p>
+        <p class="vision-text">
+          <span data-lang="zh">比起將自己限制在單一產業，我更想理解新興科技、數位產品與更好的體驗，如何幫助人們生活、學習，以及更理解自己。</span>
+          <span data-lang="en">Rather than following a single industry path, I'm interested in understanding how emerging technologies, digital products and better experiences can help people live, learn and understand themselves differently.</span>
+        </p>
+      </div>
+      <div class="vision-block">
+        <div class="vision-subhead"><span data-lang="zh">目前在尋找</span><span data-lang="en">What I'm Looking For</span></div>
+        <p class="vision-text">
+          <span data-lang="zh">目前希望尋找產品、行銷策略、成長或合作夥伴相關機會，加入以科技驅動的團隊，特別關注消費者需求與健康、Wellness、教育或人類發展交會的領域。</span>
+          <span data-lang="en">I'm looking for opportunities in product, marketing strategy, growth or partnerships within technology-driven teams, particularly where consumer needs intersect with health, wellness, education or human development.</span>
+        </p>
+      </div>
       <div class="vision-chips">
-        <span class="year-chip"><span data-lang="zh">大健康產業</span><span data-lang="en">Wellness Industry</span></span>
-        <span class="year-chip"><span data-lang="zh">生活風格品牌</span><span data-lang="en">Lifestyle Brands</span></span>
-        <span class="year-chip">APAC</span>
-        <span class="year-chip"><span data-lang="zh">新創生態</span><span data-lang="en">Startup Ecosystem</span></span>
+        <span class="year-chip"><span data-lang="zh">健康與 Wellness</span><span data-lang="en">Health &amp; Wellness</span></span>
+        <span class="year-chip"><span data-lang="zh">消費者體驗</span><span data-lang="en">Consumer Experience</span></span>
+        <span class="year-chip"><span data-lang="zh">數位產品</span><span data-lang="en">Digital Products</span></span>
+        <span class="year-chip"><span data-lang="zh">教育與人類發展</span><span data-lang="en">Education &amp; Human Development</span></span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Contact -->
+<!-- 09 Contact -->
 <section id="contact">
   <div class="section-label" style="justify-content:center"><span data-lang="zh">聯絡我</span><span data-lang="en">Contact</span></div>
   <h2 class="section-title"><span data-lang="zh">讓我們談談</span><span data-lang="en">Let's Talk</span></h2>
@@ -548,7 +770,7 @@ footer{padding:32px 48px;border-top:1px solid var(--line);display:flex;justify-c
 
 <footer>
   <span>© 2026 Amber Chang</span>
-  <span>Brand &amp; Product Marketing | Lifestyle &amp; Wellness (APAC)</span>
+  <span>Brand &amp; Product Strategy | Health, Wellness &amp; Consumer Experience</span>
 </footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
